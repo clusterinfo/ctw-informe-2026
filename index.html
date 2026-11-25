@@ -1,1 +1,2526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Córdoba Tech Week 2026 — Informe para el Consejo Directivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-black: #000000;
+      --bg-surface: #0a0a0e;
+      --bg-card: #101016;
+      --bg-card-hover: #16161f;
+      --lime: #c4f023;
+      --lime-bright: #79fb41;
+      --lime-muted: #88a203;
+      --purple: #6900ff;
+      --purple-mid: #5d30fc;
+      --purple-soft: rgba(105, 0, 255, 0.16);
+      --cyan: #12f7df;
+      --cyan-soft: rgba(18, 247, 223, 0.12);
+      --gold: #efd763;
+      --coral: #fc7981;
+      --white: #ffffff;
+      --gray-light: #d4d1d1;
+      --gray-muted: #8e8e98;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --font-display: 'Antonio', 'Anton', Impact, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-black);
+      color: var(--white);
+      font-family: var(--font-body);
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Scanline tech texture from CTW Canva aesthetic */
+    .scanlines {
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(196, 240, 35, 0.04) 0px,
+        rgba(196, 240, 35, 0.04) 2px,
+        transparent 2px,
+        transparent 7px
+      );
+    }
+
+    .scanlines-purple {
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(105, 0, 255, 0.08) 0px,
+        rgba(105, 0, 255, 0.08) 2px,
+        transparent 2px,
+        transparent 7px
+      );
+    }
+
+    /* Top Sticky Navigation */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--purple);
+      padding: 0.75rem 2rem;
+    }
+
+    .topbar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .brand-lockup .cordoba {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .brand-lockup .techweek {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--lime);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gray-light);
+      text-decoration: none;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--bg-black);
+      background: var(--lime);
+      font-weight: 700;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 5rem 0 4.5rem;
+      border-bottom: 1px solid var(--purple);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(105, 0, 255, 0.28) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -140px;
+      left: 10%;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(196, 240, 35, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--lime);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      background: rgba(196, 240, 35, 0.08);
+      border: 1px solid rgba(196, 240, 35, 0.35);
+      padding: 0.35rem 0.85rem;
+    }
+
+    .hero-brand {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-brand .top {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .hero-brand .bottom {
+      font-family: var(--font-mono);
+      font-size: clamp(1.6rem, 3.6vw, 2.7rem);
+      font-weight: 700;
+      color: var(--lime);
+      line-height: 1.1;
+      margin-top: 0.15rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.08;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 960px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title span.accent-lime {
+      color: var(--lime);
+    }
+
+    .hero-title span.accent-cyan {
+      color: var(--cyan);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .pill-lime {
+      display: inline-block;
+      background: var(--lime);
+      color: var(--bg-black);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pill-purple {
+      display: inline-block;
+      background: var(--purple);
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pill-cyan {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 0.32rem 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pill-pending {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(239, 215, 99, 0.12);
+      border: 1px dashed var(--gold);
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 2px;
+      margin-top: 0.35rem;
+    }
+
+    /* Section Structure */
+    section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid rgba(105, 0, 255, 0.35);
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.08;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .section-title .chevron {
+      color: var(--lime);
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    .section-lead {
+      font-size: 1rem;
+      color: var(--gray-light);
+      max-width: 780px;
+      margin-top: 0.75rem;
+    }
+
+    /* Section 1: KPI Bento Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--purple);
+      padding: 1.65rem 1.5rem;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--lime);
+      background: var(--bg-card-hover);
+    }
+
+    .kpi-card.featured {
+      border-color: var(--lime);
+      background: linear-gradient(145deg, rgba(196, 240, 35, 0.09) 0%, var(--bg-card) 65%);
+    }
+
+    .kpi-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--lime);
+      color: var(--bg-black);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      text-transform: uppercase;
+    }
+
+    .kpi-badge.purple {
+      background: var(--purple);
+      color: var(--white);
+    }
+
+    .kpi-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--lime);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .kpi-card.featured .kpi-number {
+      color: var(--white);
+    }
+
+    .kpi-label {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi-detail {
+      font-size: 0.86rem;
+      color: var(--gray-light);
+      line-height: 1.45;
+    }
+
+    /* Section 2: 6 Bets Grid */
+    .bets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .bet-card {
+      background: var(--bg-card);
+      border-left: 4px solid var(--lime);
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .bet-card.pending-card {
+      border-left-color: var(--gold);
+    }
+
+    .bet-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--lime);
+      font-weight: 700;
+    }
+
+    .bet-card.pending-card .bet-num {
+      color: var(--gold);
+    }
+
+    .bet-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .bet-desc {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+    }
+
+    .bet-highlight {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--cyan);
+      background: var(--cyan-soft);
+      padding: 0.4rem 0.65rem;
+      display: inline-block;
+      margin-top: 0.25rem;
+    }
+
+    /* Section 3: Economy & Balance */
+    .economy-hero-banner {
+      background: linear-gradient(90deg, rgba(105, 0, 255, 0.28) 0%, rgba(196, 240, 35, 0.14) 100%);
+      border: 1px solid var(--lime);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .economy-hero-text {
+      font-size: 1.1rem;
+      color: var(--white);
+      max-width: 720px;
+    }
+
+    .economy-hero-text strong {
+      color: var(--lime);
+    }
+
+    .turnaround-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .turnaround-box {
+      padding: 0.65rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-black);
+    }
+
+    .turnaround-box.neg {
+      border-color: var(--coral);
+      color: var(--coral);
+    }
+
+    .turnaround-box.pos {
+      border-color: var(--lime);
+      color: var(--lime);
+      font-weight: 700;
+    }
+
+    .finance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .fin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--purple);
+      padding: 1.4rem;
+    }
+
+    .fin-card.saldo {
+      border-color: var(--lime);
+      background: rgba(196, 240, 35, 0.08);
+    }
+
+    .fin-card.cobrar {
+      border-color: var(--cyan);
+    }
+
+    .fin-card.pagar {
+      border-color: var(--coral);
+    }
+
+    .fin-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 0.45rem;
+      display: block;
+    }
+
+    .fin-amount {
+      font-family: var(--font-display);
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .fin-card.saldo .fin-amount {
+      color: var(--lime);
+    }
+
+    .fin-card.cobrar .fin-amount {
+      color: var(--cyan);
+    }
+
+    .fin-card.pagar .fin-amount {
+      color: var(--coral);
+    }
+
+    .fin-bar-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .fin-bar-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .bar-row {
+      margin-bottom: 1rem;
+    }
+
+    .bar-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .bar-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 14px;
+      background: #1a1a24;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+    }
+
+    /* Desglose Falta Cobrar (Sección 03) */
+    .receivables-box {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 2px solid var(--cyan);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .receivables-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .receivables-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--cyan);
+      letter-spacing: 0.04em;
+    }
+
+    .receivables-total {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .receivables-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .receivable-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 1.3fr) minmax(130px, 0.8fr) minmax(180px, 1.4fr);
+      align-items: center;
+      gap: 1rem;
+      padding: 0.65rem 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .receivable-row:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(18, 247, 223, 0.35);
+    }
+
+    .receivable-entity {
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .receivable-sub {
+      color: var(--gray-muted);
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+
+    .receivable-amount {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--cyan);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .receivable-status {
+      text-align: right;
+    }
+
+    .status-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      line-height: 1.3;
+    }
+
+    .status-tag.proceso {
+      background: rgba(196, 240, 35, 0.1);
+      border: 1px solid rgba(196, 240, 35, 0.4);
+      color: var(--lime);
+    }
+
+    .status-tag.cuotas {
+      background: rgba(18, 247, 223, 0.08);
+      border: 1px solid rgba(18, 247, 223, 0.35);
+      color: var(--cyan);
+    }
+
+    .status-tag.traba {
+      background: rgba(252, 121, 129, 0.1);
+      border: 1px solid rgba(252, 121, 129, 0.4);
+      color: var(--coral);
+    }
+
+    .status-tag.neutro {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--gray-muted);
+    }
+
+    @media (max-width: 768px) {
+      .receivable-row {
+        grid-template-columns: 1fr auto;
+        gap: 0.45rem 0.75rem;
+      }
+
+      .receivable-status {
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+    }
+
+    .note-box {
+      background: var(--purple-soft);
+      border-left: 4px solid var(--purple);
+      padding: 1rem 1.35rem;
+      font-size: 0.92rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Sections 4, 5, 6 Grid */
+    .tri-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .panel-box {
+      background: var(--bg-card);
+      border: 1px solid var(--purple);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .panel-box.lime-border {
+      border-color: var(--lime);
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.94rem;
+      color: var(--white);
+    }
+
+    .check-icon {
+      color: var(--lime);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Reporte de comunicación y redes (Sección 06) */
+    .social-panel {
+      grid-column: 1 / -1;
+      background: var(--bg-card);
+      border: 1px solid var(--cyan);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+
+    .social-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .social-kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .social-kpi {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1rem;
+    }
+
+    .social-kpi-num {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--cyan);
+      line-height: 1.05;
+    }
+
+    .social-kpi-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-top: 0.25rem;
+    }
+
+    .social-kpi-delta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--lime);
+      margin-top: 0.2rem;
+      display: block;
+    }
+
+    .social-subgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .social-subbox {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 1.1rem 1.25rem;
+    }
+
+    .social-subbox-title {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .top-posts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      font-size: 0.86rem;
+    }
+
+    .top-posts-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      color: var(--gray-light);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 0.45rem;
+    }
+
+    .top-posts-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .top-posts-list strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .top-posts-metric {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--cyan);
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    /* Sections 7 & 8: Decisions */
+    .validated-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .validated-card {
+      background: var(--bg-card);
+      border: 1px solid var(--cyan);
+      padding: 1.35rem;
+      position: relative;
+    }
+
+    .validated-card .status {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--bg-black);
+      background: var(--cyan);
+      font-weight: 700;
+      padding: 0.18rem 0.5rem;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 0.65rem;
+    }
+
+    .validated-card p {
+      font-size: 0.94rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .decision-card {
+      background: var(--bg-card);
+      border: 1px solid var(--purple);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+
+    .decision-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .decision-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--lime);
+      font-weight: 700;
+    }
+
+    .decision-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      background: var(--purple);
+      color: var(--white);
+      padding: 0.18rem 0.55rem;
+      text-transform: uppercase;
+    }
+
+    .decision-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .decision-body {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+    }
+
+    .rec-box {
+      background: rgba(196, 240, 35, 0.08);
+      border-left: 3px solid var(--lime);
+      padding: 0.65rem 0.85rem;
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+
+    .rec-box strong {
+      color: var(--lime);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Section 9: Next Steps Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border-top: 4px solid var(--lime);
+      border-left: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .step-card:nth-child(2) {
+      border-top-color: var(--cyan);
+    }
+
+    .step-card:nth-child(3) {
+      border-top-color: var(--purple);
+    }
+
+    .step-card:nth-child(4) {
+      border-top-color: var(--lime-bright);
+    }
+
+    .step-date {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--lime);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .step-card:nth-child(2) .step-date { color: var(--cyan); }
+    .step-card:nth-child(3) .step-date { color: #a77bff; }
+
+    .step-text {
+      font-size: 0.92rem;
+      color: var(--white);
+    }
+
+    /* Section 10: Lo que no funcionó */
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .issue-card {
+      background: var(--bg-card);
+      border-left: 4px solid var(--coral);
+      border-top: 1px solid rgba(252, 121, 129, 0.25);
+      border-right: 1px solid rgba(252, 121, 129, 0.25);
+      border-bottom: 1px solid rgba(252, 121, 129, 0.25);
+      padding: 1.5rem;
+    }
+
+    .issue-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+
+    .issue-desc {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+    }
+
+    /* Anexo A: Retrospectiva 4Ls */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--purple);
+      color: var(--gray-light);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 0.45rem 0.9rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--lime);
+      border-color: var(--lime);
+      color: var(--bg-black);
+      font-weight: 700;
+    }
+
+    .retro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.35rem;
+    }
+
+    .retro-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 1.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .retro-card.fortaleza { border-top: 3px solid var(--lime); }
+    .retro-card.mixta { border-top: 3px solid var(--gold); }
+    .retro-card.fortalecer { border-top: 3px solid var(--coral); }
+    .retro-card.neutro { border-top: 3px solid var(--cyan); }
+
+    .retro-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .retro-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .retro-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      text-transform: uppercase;
+    }
+
+    .retro-badge.fortaleza { background: var(--lime); color: var(--bg-black); }
+    .retro-badge.mixta { background: var(--gold); color: var(--bg-black); }
+    .retro-badge.fortalecer { background: var(--coral); color: var(--bg-black); }
+    .retro-badge.neutro { background: var(--cyan); color: var(--bg-black); }
+
+    .retro-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .retro-list li {
+      font-size: 0.88rem;
+      color: var(--gray-light);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .retro-list li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--lime);
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    .retro-list li strong {
+      color: var(--white);
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      background: var(--bg-black);
+      border-top: 1px solid var(--purple);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .footer-note {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--gray-muted);
+    }
+
+    /* Print optimization */
+    @media print {
+      .topbar, .filter-bar { display: none !important; }
+      body { background: #000000 !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { page-break-inside: avoid; padding: 2rem 0; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0.65rem 1rem; }
+      .container { padding: 0 1.15rem; }
+      .hero { padding: 3.25rem 0 3rem; }
+      section { padding: 3rem 0; }
+      .bets-grid, .tri-grid, .committee-grid, .issues-grid, .retro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+      /* Bloque Canjes y Adherentes con estética de tarjetas de la Sección 03 */
+      .canjes-section-box {
+        width: 100%;
+        background: var(--bg-card);
+        border: 1px solid #b78aff;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .canjes-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.15rem;
+      }
+
+      .canjes-title {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #b78aff;
+        letter-spacing: 0.04em;
+      }
+
+      .canjes-total-big {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3vw, 2rem);
+        font-weight: 700;
+        color: #b78aff;
+        line-height: 1;
+        letter-spacing: 0.01em;
+      }
+
+      .canjes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .canjes-row {
+        display: grid;
+        grid-template-columns: minmax(180px, 1.3fr) minmax(130px, 0.8fr) minmax(180px, 1.4fr);
+        align-items: center;
+        gap: 1rem;
+        padding: 0.65rem 0.85rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 0.88rem;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .canjes-row:hover {
+        background: var(--bg-card-hover);
+        border-color: rgba(183, 138, 255, 0.45);
+      }
+
+      .canjes-amount-col {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        color: #b78aff;
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .status-tag.canje {
+        background: rgba(183, 138, 255, 0.12);
+        border: 1px solid rgba(183, 138, 255, 0.42);
+        color: #d8beff;
+      }
+
+      /* Consolidado Ingresos + Canjes y Gastos + Canjes con estética de tarjetas */
+      .canjes-consolidated-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.15rem;
+        margin-top: 1.25rem;
+      }
+
+      .fin-card.canje-ingresos {
+        border-color: #b78aff;
+        background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
+      }
+
+      .fin-card.canje-ingresos .fin-amount {
+        font-family: var(--font-display);
+        font-size: clamp(2.1rem, 3.2vw, 2.65rem);
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.05;
+      }
+
+      .fin-card.canje-gastos {
+        border-color: #b78aff;
+        background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
+      }
+
+      .fin-card.canje-gastos .fin-amount {
+        font-family: var(--font-display);
+        font-size: clamp(2.1rem, 3.2vw, 2.65rem);
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.05;
+      }
+
+      @media (max-width: 768px) {
+        .canjes-row {
+          grid-template-columns: 1fr auto;
+          gap: 0.45rem 0.75rem;
+        }
+        .canjes-row .receivable-status {
+          grid-column: 1 / -1;
+          text-align: left;
+        }
+      }
+
+  
+      /* Principales Rubros de Gastos (2025 vs 2026) */
+      .rubros-box {
+        width: 100%;
+        background: var(--bg-card);
+        border: 1px solid var(--coral);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .rubros-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.15rem;
+      }
+
+      .rubros-title {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--coral);
+        letter-spacing: 0.04em;
+      }
+
+      .rubros-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .rubros-col {
+        background: rgba(255, 255, 255, 0.015);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 1.1rem 1.2rem;
+      }
+
+      .rubros-col-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.85rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .rubros-year-badge {
+        font-family: var(--font-display);
+        font-size: 1.45rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        line-height: 1;
+      }
+
+      .rubros-year-badge.y2025 {
+        color: var(--gray-light);
+      }
+
+      .rubros-year-badge.y2026 {
+        color: var(--lime);
+      }
+
+      .rubros-col-sub {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: var(--gray-muted);
+      }
+
+      .rubros-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .rubro-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.28rem;
+      }
+
+      .rubro-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 0.75rem;
+        font-size: 0.88rem;
+      }
+
+      .rubro-name {
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      .rubro-pct {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+
+      .rubros-col.col-2025 .rubro-pct {
+        color: var(--coral);
+      }
+
+      .rubros-col.col-2026 .rubro-pct {
+        color: var(--lime);
+      }
+
+      .rubro-bar-track {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+      }
+
+      .rubro-bar-fill {
+        height: 100%;
+      }
+
+      .rubros-col.col-2025 .rubro-bar-fill {
+        background: var(--coral);
+      }
+
+      .rubros-col.col-2026 .rubro-bar-fill {
+        background: var(--lime);
+      }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand-lockup">
+        <span class="cordoba">CÓRDOBA</span>
+        <span class="techweek">[tech_week]</span>
+      </a>
+      <nav class="nav-links" aria-label="Secciones del informe">
+        <a href="#sec-1">01 Metricas generales</a>
+        <a href="#sec-2">02 Apuestas 2025</a>
+        <a href="#sec-3">03 Resultado</a>
+        <a href="#sec-4">04–06 Balance</a>
+        <!--<a href="#sec-7">07 Validación</a>-->
+        <!--<a href="#sec-8">08 Decisiones</a>-->
+        <a href="#sec-9">07 Próximos Pasos</a>
+        <a href="#anexo-a">Anexo A</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div id="top" class="hero scanlines">
+    <div class="container">
+      <div class="hero-eyebrow">[ Revisión EDICIÓN 2026 ]</div>
+      <div class="hero-brand">
+        <div class="top">CÓRDOBA</div>
+        <div class="bottom">[tech_week]</div>
+      </div>
+      <h1 class="hero-title">
+        <span class="accent-lime">qué apostamos</span>, <span class="accent-cyan">qué logramos</span> y qué hay que decidir
+      </h1>
+    </div>
+  </div>
+
+  <!-- 1. El evento en una slide -->
+  <section id="sec-1">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ 01 / MÉTRICAS GENERALES ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 1. El evento en una slide</h2>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card featured">
+          <span class="kpi-badge">CONVOCATORIA</span>
+          <div class="kpi-number">7.568</div>
+          <div class="kpi-label">Inscriptos</div>
+          <div class="kpi-detail">Registro total alcanzado para la edición 2026.</div>
+        </div>
+
+        <div class="kpi-card featured">
+          <span class="kpi-badge purple">2 JORNADAS</span>
+          <div class="kpi-number">5.600</div>
+          <div class="kpi-label">Asistentes</div>
+          <div class="kpi-detail">Personas acreditadas en las 2 jornadas.</div>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-badge">CONTENIDO</span>
+          <div class="kpi-number">53</div>
+          <div class="kpi-label">Speakers</div>
+          <div class="kpi-detail">46 charlas y paneles, en 2 escenarios en simultáneo.</div>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-badge purple">EXPOSICIÓN</span>
+          <div class="kpi-number">64</div>
+          <div class="kpi-label">Zona Expo</div>
+          <div class="kpi-detail">60 stands y 4 hubs corporativos desplegados.</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-number">35</div>
+          <div class="kpi-label">Sponsors</div>
+          <div class="kpi-detail">Empresas e instituciones acompañando la edición.</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-number">37</div>
+          <div class="kpi-label">Stand</div>
+          <div class="kpi-detail">Expositores comerciales con stand propio.</div>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-badge">B2B INTERNACIONAL</span>
+          <div class="kpi-number">125</div>
+          <div class="kpi-label">Tech Connect Córdoba</div>
+          <div class="kpi-detail">125 reuniones B2B entre 40 empresas socias y 7 operadores internacionales de 5 países.</div>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-badge purple">TALENTO JOVEN</span>
+          <div class="kpi-number">1</div>
+          <div class="kpi-label">Hackathon de Innovación Sostenible</div>
+          <div class="kpi-detail">218 jóvenes, 26 mesas de trabajo, 250 ideas y 4 equipos ganadores.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Qué apostamos en 2026 -->
+  <section id="sec-2" class="scanlines-purple">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ 02 / ESTRATEGIA DE EDICIÓN ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 2. Qué apostamos en 2026</h2>
+        <p class="section-lead">En el kick off de abril definimos seis apuestas para esta edición.</p>
+      </div>
+
+      <div class="bets-grid">
+        <div class="bet-card">
+          <div>
+            <span class="bet-num">[ APUESTA 01 ]</span>
+            <h3 class="bet-title">IA como eje</h3>
+            <p class="bet-desc">Lema <em>“Acelerando la revolución de la IA”</em> y programa de 38 charlas y paneles.</p>
+          </div>
+          <div>
+            <span class="bet-highlight">71% del programa estuvo dedicado a IA</span>
+          </div>
+        </div>
+
+        <div class="bet-card pending-card">
+          <div>
+            <span class="bet-num">[ APUESTA 02 ]</span>
+            <h3 class="bet-title">Depender menos del gobierno</h3>
+            <p class="bet-desc">Reducción de la dependencia de aportes estatales respecto de ediciones anteriores.</p>
+          </div>
+          <div>
+            <span class="bet-highlight">aportes públicos: 35% en 2026 vs. 56% en 2025</span>
+          </div>
+        </div>
+
+        <div class="bet-card">
+          <div>
+            <span class="bet-num">[ APUESTA 03 ]</span>
+            <h3 class="bet-title">Cobrar lo que tiene valor</h3>
+            <p class="bet-desc">Esquema tarifario diferenciado que traccionó membresías institucionales.</p>
+          </div>
+          <div>
+            <span class="bet-highlight">11 organizaciones no socias se sumaron como sponsors. 6 socios nuevos para poder acceder al costo diferencial</span>
+          </div>
+        </div>
+
+        <div class="bet-card">
+          <div>
+            <span class="bet-num">[ APUESTA 04 ]</span>
+            <h3 class="bet-title">Speakers como el gran atractor</h3>
+            <p class="bet-desc">La calidad y variedad de speakers salta a primera vista como diferencial central de convocatoria.</p>
+          </div>
+          <div>
+            <span class="bet-highlight">53 speakers y panelistas referentes</span>
+          </div>
+        </div>
+
+        <div class="bet-card">
+          <div>
+            <span class="bet-num">[ APUESTA 05 ]</span>
+            <h3 class="bet-title">Público empresario</h3>
+            <p class="bet-desc">5.600 asistentes, con fuerte presencia de tomadores de decisión del sector productivo.</p>
+          </div>
+          <div>
+            <span class="bet-highlight">47,67% de los asistentes de 2026 son puestos de liderazgo/alta dirección</span>
+            <span class="bet-highlight">Aumento +64% preinscritos vs. 2025</span>
+          </div>
+        </div>
+
+        <div class="bet-card">
+          <div>
+            <span class="bet-num">[ APUESTA 06 ]</span>
+            <h3 class="bet-title">Dos escenarios</h3>
+            <p class="bet-desc">Programación paralela para ampliar oferta temática y dinamismo en sala.</p>
+          </div>
+          <div>
+            <span class="bet-highlight">2 escenarios en simultáneo (Principal y Pitch Corner)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Resultado de la edición -->
+  <section id="sec-3">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ 03 / RESULTADOS FINANCIEROS ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 3. El resultado de la edición</h2>
+      </div>
+
+      <div class="economy-hero-banner">
+        <div class="economy-hero-text">
+          Pasamos de un deficit de aprox <strong>$10M en 2025</strong> a un superávit de <strong>$30M en 2026</strong>.
+        </div>
+        <div class="turnaround-badges">
+          <div class="turnaround-box neg">2025: -$10M</div>
+          <span style="font-family: var(--font-mono); color: var(--lime); font-weight: 700;">&rarr;</span>
+          <div class="turnaround-box pos">2026 POSITIVO: +$30</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <span class="pill-lime">LOS NÚMEROS DE LA EDICIÓN 2026</span>
+      </div>
+
+      <div class="finance-grid">
+        <div class="fin-card">
+          <span class="fin-label">Total de INGRESOS</span>
+          <div class="fin-amount">$563.807.575</div>
+        </div>
+
+        <div class="fin-card">
+          <span class="fin-label">Total de GASTOS</span>
+          <div class="fin-amount">$533.534.028</div>
+        </div>
+
+        <div class="fin-card saldo">
+          <span class="fin-label">Resultado económico</span>
+          <div class="fin-amount">$30.273.547</div>
+        </div>
+
+        <div class="fin-card cobrar">
+          <span class="fin-label">Falta cobrar</span>
+          <div class="fin-amount">$143.181.567</div>
+        </div>
+
+        <div class="fin-card pagar">
+          <span class="fin-label">Falta Pagar</span>
+          <div class="fin-amount">$73.606.705</div>
+        </div>
+      </div>
+
+      <!-- Desglose de canjes y adherentes -->
+      <div class="canjes-section-box">
+        <div class="canjes-header-row">
+          <span class="canjes-title">[ CANJES Y ADHERENTES · 7 ÍTEMS ]</span>
+          <span class="canjes-total-big">$62.323.205</span>
+        </div>
+
+        <div class="canjes-list">
+          <div class="canjes-row">
+            <span class="receivable-entity">BINIVISION</span>
+            <span class="canjes-amount-col">$18.993.975</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Adherente</span></span>
+          </div>
+          <div class="canjes-row">
+            <span class="receivable-entity">PROCORDOBA <span class="receivable-sub">(Vuelo + honorarios TARAMONA)</span></span>
+            <span class="canjes-amount-col">$14.004.462</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Traslados y honorarios</span></span>
+          </div>
+          <div class="canjes-row">
+            <span class="receivable-entity">LA VOZ</span>
+            <span class="canjes-amount-col">$12.100.000</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Prensa y difusión</span></span>
+          </div>
+          <div class="canjes-row">
+            <span class="receivable-entity">GRUPO EON</span>
+            <span class="canjes-amount-col">$8.784.000</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Adherente</span></span>
+          </div>
+          <div class="canjes-row">
+            <span class="receivable-entity">VUELOS RONDA PROM</span>
+            <span class="canjes-amount-col">$5.966.712</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Traslados</span></span>
+          </div>
+          <div class="canjes-row">
+            <span class="receivable-entity">QUINTO CENTENARIO</span>
+            <span class="canjes-amount-col">$1.573.000</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Adherente</span></span>
+          </div>
+          <div class="canjes-row">
+            <span class="receivable-entity">AIRSAT</span>
+            <span class="canjes-amount-col">$901.056</span>
+            <span class="receivable-status"><span class="status-tag canje">Canje / Conectividad</span></span>
+          </div>
+        </div>
+
+        <div class="canjes-consolidated-grid">
+          <div class="fin-card canje-ingresos">
+            <span class="fin-label">Ingresos + canjes</span>
+            <div class="fin-amount">$626.130.780</div>
+          </div>
+          <div class="fin-card canje-gastos">
+            <span class="fin-label">Gastos + canjes</span>
+            <div class="fin-amount">$595.857.234</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Principales Rubros de Gastos (2025 vs 2026) -->
+      <div class="rubros-box">
+        <div class="rubros-header">
+          <span class="rubros-title">[ PRINCIPALES RUBROS DE GASTOS · COMPARATIVA 2025 VS. 2026 ]</span>
+        </div>
+
+        <div class="rubros-grid">
+          <!-- Columna 2025 -->
+          <div class="rubros-col col-2025">
+            <div class="rubros-col-head">
+              <span class="rubros-year-badge y2025">2025</span>
+              <span class="rubros-col-sub">Top 6 rubros</span>
+            </div>
+            <div class="rubros-list">
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Técnica y Audiovisual</span>
+                  <span class="rubro-pct">26,25%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 100%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Infraestructura zona expo</span>
+                  <span class="rubro-pct">13,59%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 51.77%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Alquiler CCC</span>
+                  <span class="rubro-pct">12,60%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 48.00%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Viaticos</span>
+                  <span class="rubro-pct">11,12%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 42.36%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Gastronomía</span>
+                  <span class="rubro-pct">8,47%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 32.27%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Comunicación</span>
+                  <span class="rubro-pct">6,84%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 26.06%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2026 -->
+          <div class="rubros-col col-2026">
+            <div class="rubros-col-head">
+              <span class="rubros-year-badge y2026">2026</span>
+              <span class="rubros-col-sub">Top 6 rubros</span>
+            </div>
+            <div class="rubros-list">
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Técnica y Audiovisual</span>
+                  <span class="rubro-pct">19,28%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 73.45%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Infraestructura zona expo</span>
+                  <span class="rubro-pct">13,50%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 51.43%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Alquiler CCC</span>
+                  <span class="rubro-pct">11,41%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 43.47%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Viaticos</span>
+                  <span class="rubro-pct">5,56%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 21.18%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Mobiliario</span>
+                  <span class="rubro-pct">5,50%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 20.95%;"></div></div>
+              </div>
+
+              <div class="rubro-item">
+                <div class="rubro-meta">
+                  <span class="rubro-name">Gastronomía</span>
+                  <span class="rubro-pct">5,38%</span>
+                </div>
+                <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 20.50%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desglose detallado de cuentas a cobrar -->
+      <div class="receivables-box">
+        <div class="receivables-header">
+          <span class="receivables-title">[ DETALLE DE CUENTAS A COBRAR · 11 ENTIDADES ]</span>
+          <span class="receivables-total">$143.181.567</span>
+        </div>
+
+        <div class="receivables-list">
+          <div class="receivable-row">
+            <span class="receivable-entity">UNIÓN EUROPEA</span>
+            <span class="receivable-amount">$51.134.900</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de cobro</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">CLARO</span>
+            <span class="receivable-amount">$24.200.000</span>
+            <span class="receivable-status"><span class="status-tag traba">Falta la OP para emitir la factura</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">NSS SA - IPLAN</span>
+            <span class="receivable-amount">$18.000.000</span>
+            <span class="receivable-status"><span class="status-tag traba">Problemas con el alta de proveedor</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">SIGLO</span>
+            <span class="receivable-amount">$14.000.000</span>
+            <span class="receivable-status"><span class="status-tag proceso">En proceso de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">OMINT</span>
+            <span class="receivable-amount">$9.680.000</span>
+            <span class="receivable-status"><span class="status-tag proceso">En proceso de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">BANCOR <span class="receivable-sub">(No socio)</span></span>
+            <span class="receivable-amount">$9.680.000</span>
+            <span class="receivable-status"><span class="status-tag proceso">En proceso de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">BIZIT GLOBAL</span>
+            <span class="receivable-amount">$4.840.000</span>
+            <span class="receivable-status"><span class="status-tag cuotas">6 cuotas (finaliza 02/2027)</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">FORTR3SS - CREATIVAR SAS</span>
+            <span class="receivable-amount">$4.840.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de cobro</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">INTROMATIC <span class="receivable-sub">(Factura CC)</span></span>
+            <span class="receivable-amount">$4.000.000</span>
+            <span class="receivable-status"><span class="status-tag proceso">Pagado desde EE.UU. · Esperando liquidación</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">UNC <span class="receivable-sub">(Factura CC)</span></span>
+            <span class="receivable-amount">$2.000.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de cobro</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">SOFT HOUSE</span>
+            <span class="receivable-amount">$806.667</span>
+            <span class="receivable-status"><span class="status-tag cuotas">Falta 1 cuota en diciembre</span></span>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Desglose detallado de cuentas a pagar -->
+<div class="receivables-box">
+  <div class="receivables-header">
+    <span class="receivables-title">[ DETALLE DE CUENTAS A PAGAR · 13 ENTIDADES ]</span>
+    <span class="receivables-total">$73.506.705</span>
+  </div>
+
+  <div class="receivables-list">
+    <div class="receivable-row">
+      <span class="receivable-entity">LA VOZ</span>
+      <span class="receivable-amount">$22.173.250</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">HABITANTES</span>
+      <span class="receivable-amount">$14.770.000</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">IIBB</span>
+      <span class="receivable-amount">$11.633.375</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">COMISIÓN POR VENTA CMS</span>
+      <span class="receivable-amount">$6.400.000</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">AMR <span class="receivable-sub">(Contenido RRSS)</span></span>
+      <span class="receivable-amount">$6.000.000</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">LIMPIEZA HACKATON</span>
+      <span class="receivable-amount">$3.825.025</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">GRUPO EON <span class="receivable-sub">(Pauta)</span></span>
+      <span class="receivable-amount">$2.000.000</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">INTERNET AIRSAT</span>
+      <span class="receivable-amount">$1.929.769</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">GAMBA</span>
+      <span class="receivable-amount">$1.452.000</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">CENA</span>
+      <span class="receivable-amount">$1.076.900</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">APERTURA VIDEO AMR</span>
+      <span class="receivable-amount">$1.000.000</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">ATREZZO EXTRAS</span>
+      <span class="receivable-amount">$724.999</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+    <div class="receivable-row">
+      <span class="receivable-entity">VENTILADORES</span>
+      <span class="receivable-amount">$621.387</span>
+      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+    </div>
+  </div>
+</div>
+    
+
+  <!-- 4, 5 & 6: Lo que funcionó, Encuestas y Comunicación -->
+  <section id="sec-4" class="scanlines">
+    <div class="container">
+      <div class="tri-grid">
+        <!-- 4. Lo que funcionó -->
+        <div class="panel-box lime-border">
+          <div>
+            <span class="section-tag">[ 04 / ACIERTOS CLAVE ]</span>
+            <h2 class="section-title" style="font-size: 1.85rem;"><span class="chevron">&gt;</span> 4. Lo que funcionó</h2>
+          </div>
+          <ul class="check-list">
+            <li><span class="check-icon">[✓]</span> <span>La calidad de los speakers</span></li>
+            <li><span class="check-icon">[✓]</span> <span>La convocatoria</span></li>
+            <li><span class="check-icon">[✓]</span> <span>Proceso comercial</span></li>
+            <li><span class="check-icon">[✓]</span> <span>La comunicación y la prensa</span></li>
+          </ul>
+        </div>
+
+        <!-- 5. Lo que dicen sponsors y asistentes -->
+        <div id="sec-5" class="panel-box">
+          <div>
+            <span class="section-tag">[ 05 / PERCEPCIÓN &amp; NPS ]</span>
+            <h2 class="section-title" style="font-size: 1.85rem;"><span class="chevron">&gt;</span> 5. Lo que dicen sponsors y asistentes</h2>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <strong style="display: block; font-size: 0.92rem; color: var(--white);">Encuesta a asistentes:</strong>
+              <span class="pill-pending">[COMPLETAR: satisfacción general, NPS y comentarios]</span>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.92rem; color: var(--white);">Encuesta a sponsors y expositores:</strong>
+              <span class="pill-pending">[COMPLETAR: satisfacción, retorno percibido y intención de renovar]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Reporte de comunicación -->
+        <div id="sec-6" class="social-panel">
+       <div id="sec-6" class="social-panel">
+  <div class="social-meta-row">
+    <div>
+      <span class="section-tag">[ 06 / RRSS, YOUTUBE Y WEB ]</span>
+      <h2 class="section-title" style="font-size: 1.85rem;"><span class="chevron">&gt;</span> 6. Reporte de comunicación</h2>
+    </div>
+    <span class="pill-cyan">PERÍODO: ÚLTIMOS 30 DÍAS · 25/10 – 25/11/2026</span>
+  </div>
+
+  <div class="social-subgrid">
+    <!-- Instagram -->
+    <div class="social-subbox">
+      <span class="social-subbox-title">[ INSTAGRAM · ÚLTIMOS 30 DÍAS ]</span>
+      <div class="social-kpis" style="grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0.65rem; margin-bottom: 0.85rem;">
+        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+          <div class="social-kpi-num" style="font-size: 1.45rem;">974.919</div>
+          <div class="social-kpi-label">Visualizaciones</div>
+        </div>
+        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+          <div class="social-kpi-num" style="font-size: 1.45rem;">16.576</div>
+          <div class="social-kpi-label">Interacciones</div>
+        </div>
+        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+          <div class="social-kpi-num" style="font-size: 1.45rem;">11.485</div>
+          <div class="social-kpi-label">Actividad del perfil</div>
+        </div>
+        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+          <div class="social-kpi-num" style="font-size: 1.45rem;">14.230</div>
+          <div class="social-kpi-label">Seguidores totales</div>
+        </div>
+      </div>
+      <ul class="check-list" style="gap: 0.5rem; font-size: 0.84rem;">
+        <li><span class="check-icon">[›]</span> <span><strong>Descubrimiento:</strong> 54,5% de las visualizaciones correspondieron a no seguidores.</span></li>
+        <li><span class="check-icon">[›]</span> <span><strong>Formatos:</strong> Reels lideraron el rendimiento, seguidos por publicaciones e historias.</span></li>
+      </ul>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="social-subbox">
+      <span class="social-subbox-title">[ LINKEDIN · ÚLTIMOS 30 DÍAS ]</span>
+      <ul class="top-posts-list" style="margin-bottom: 0.85rem;">
+        <li>
+          <span><strong>Impresiones</strong></span>
+          <span class="top-posts-metric">58.115 <span style="color: var(--lime); font-size: 0.72rem;">(+27,6%)</span></span>
+        </li>
+        <li>
+          <span><strong>Reacciones</strong></span>
+          <span class="top-posts-metric">1.110 <span style="color: var(--lime); font-size: 0.72rem;">(+40,7%)</span></span>
+        </li>
+        <li>
+          <span><strong>Comentarios</strong></span>
+          <span class="top-posts-metric">22 <span style="color: var(--lime); font-size: 0.72rem;">(+4,8%)</span></span>
+        </li>
+        <li>
+          <span><strong>Veces compartido</strong></span>
+          <span class="top-posts-metric">27 <span style="color: var(--lime); font-size: 0.72rem;">(+80%)</span></span>
+        </li>
+      </ul>
+      <p style="font-size: 0.82rem; color: var(--gray-light); line-height: 1.45;">
+        Mayor impulso en compartidos (+80%) y reacciones (+40,7%), reflejando circulación e interacción profesional.
+      </p>
+    </div>
+
+    <!-- YouTube -->
+    <div class="social-subbox">
+      <span class="social-subbox-title">[ YOUTUBE · CANAL CÓRDOBA CLUSTER ]</span>
+      <div class="social-kpis" style="grid-template-columns: repeat(3, minmax(85px, 1fr)); gap: 0.55rem; margin-bottom: 0.8rem;">
+        <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
+          <div class="social-kpi-num" style="font-size: 1.3rem;">749</div>
+          <div class="social-kpi-label">Suscriptores</div>
+        </div>
+        <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
+          <div class="social-kpi-num" style="font-size: 1.3rem;">531</div>
+          <div class="social-kpi-label">Videos totales</div>
+        </div>
+        <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
+          <div class="social-kpi-num" style="font-size: 1.3rem;">434</div>
+          <div class="social-kpi-label">Vis. top 9 (6d)</div>
+        </div>
+      </div>
+      <span class="social-subbox-title" style="margin-bottom: 0.5rem;">[ CHARLAS COMPLETAS CTW 2026 · PRIMEROS 6 DÍAS ]</span>
+      <ul class="top-posts-list" style="gap: 0.4rem; font-size: 0.8rem;">
+        <li><span><strong>Ciberseguridad e IA</strong></span><span class="top-posts-metric">107</span></li>
+        <li><span><strong>Desafíos economía arg. – M. Rapetti</strong></span><span class="top-posts-metric">87</span></li>
+        <li><span><strong>Crear un medio con agentes IA – S. Siri</strong></span><span class="top-posts-metric">71</span></li>
+        <li><span><strong>La infraestructura detrás…</strong></span><span class="top-posts-metric">44</span></li>
+        <li><span><strong>IA aplicada a la industria</strong></span><span class="top-posts-metric">33</span></li>
+        <li><span><strong>Latam frente a la IA: productividad y…</strong></span><span class="top-posts-metric">32</span></li>
+        <li><span><strong>No sólo hablamos de IA – H. Pennisi</strong></span><span class="top-posts-metric">25</span></li>
+        <li><span><strong>Problemas complejos, ¿qué chances…?</strong></span><span class="top-posts-metric">23</span></li>
+        <li><span><strong>226 años de legado con velocidad…</strong></span><span class="top-posts-metric">12</span></li>
+      </ul>
+    </div>
+
+    <!-- Web CTW -->
+    <div class="social-subbox">
+      <span class="social-subbox-title">[ WEB CTW · GOOGLE ANALYTICS (25/10 – 25/11) ]</span>
+      <div class="social-kpi" style="padding: 0.75rem 0.9rem; margin-bottom: 0.8rem;">
+        <div class="social-kpi-num" style="font-size: 1.65rem;">19.187</div>
+        <div class="social-kpi-label">Usuarios activos totales</div>
+      </div>
+      <span class="social-subbox-title" style="margin-bottom: 0.45rem;">[ POR DISPOSITIVO ]</span>
+      <ul class="top-posts-list" style="gap: 0.4rem; font-size: 0.8rem; margin-bottom: 0.8rem;">
+        <li><span><strong>Mobile</strong></span><span class="top-posts-metric">11.423 (59,54%)</span></li>
+        <li><span><strong>Desktop</strong></span><span class="top-posts-metric">7.648 (39,86%)</span></li>
+        <li><span><strong>Tablet</strong></span><span class="top-posts-metric">63 (0,33%)</span></li>
+      </ul>
+      <span class="social-subbox-title" style="margin-bottom: 0.45rem;">[ TOP 10 CIUDADES ]</span>
+      <ul class="top-posts-list" style="gap: 0.35rem; font-size: 0.79rem;">
+        <li><span><strong>Córdoba</strong></span><span class="top-posts-metric">10.122</span></li>
+        <li><span><strong>Buenos Aires</strong></span><span class="top-posts-metric">3.800</span></li>
+        <li><span><strong>(Sin definir)</strong></span><span class="top-posts-metric">1.134</span></li>
+        <li><span><strong>Santa Fe</strong></span><span class="top-posts-metric">497</span></li>
+        <li><span><strong>Mar del Plata</strong></span><span class="top-posts-metric">394</span></li>
+        <li><span><strong>Villa Carlos Paz</strong></span><span class="top-posts-metric">323</span></li>
+        <li><span><strong>La Calera</strong></span><span class="top-posts-metric">310</span></li>
+        <li><span><strong>San José</strong></span><span class="top-posts-metric">302</span></li>
+        <li><span><strong>Neuquén</strong></span><span class="top-posts-metric">277</span></li>
+        <li><span><strong>Salta</strong></span><span class="top-posts-metric">277</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="social-subbox">
+    <span class="social-subbox-title">[ CONCLUSIÓN GENERAL ]</span>
+    <ul class="check-list" style="gap: 0.5rem; font-size: 0.86rem;">
+      <li><span class="check-icon">[›]</span> <span><strong>Instagram:</strong> se destacó por su capacidad de alcance y descubrimiento, llegando a nuevas audiencias.</span></li>
+      <li><span class="check-icon">[›]</span> <span><strong>LinkedIn:</strong> mostró crecimiento en la circulación de contenidos e interacción profesional, especialmente en compartidos.</span></li>
+      <li><span class="check-icon">[›]</span> <span><strong>YouTube:</strong> permitió conservar y extender el acceso a los contenidos del evento mediante las charlas completas.</span></li>
+      <li><span class="check-icon">[›]</span> <span><strong>Sitio web CTW:</strong> registró 19.187 usuarios activos en 30 días, con predominio móvil (~60%) para consulta de agenda y más de la mitad del tráfico desde Córdoba (10.122), además de Buenos Aires y alcance federal (Santa Fe, Mar del Plata, Neuquén y Salta).</span></li>
+    </ul>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- 7. Consideraciones del equipo -->
+
+  <!--
+  <section id="sec-7">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ 07 / VALIDACIÓN EJECUTIVA ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 7. Consideraciones del equipo</h2>
+      </div>
+
+      <div class="validated-grid">
+        <div class="validated-card">
+          <span class="status">DEFINICIÓN 01 · VALIDAR</span>
+          <p>Mantener el formato de la CTW.</p>
+        </div>
+
+        <div class="validated-card">
+          <span class="status">DEFINICIÓN 02 · VALIDAR</span>
+          <p>No repetir el Hackathon.</p>
+        </div>
+
+        <div class="validated-card">
+          <span class="status">DEFINICIÓN 04 · VALIDAR</span>
+          <p>Compromisos/Expectativas con cada proveedor por escrito y seguimiento.</p>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+  -->
+
+  <!-- 8. A decidir -->
+   <!-- 
+  <section id="sec-8" class="scanlines-purple">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ 08 / RESOLUCIONES DEL COMITÉ ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 8. A decidir</h2>
+      </div>
+
+      <div class="committee-grid">
+        <div class="decision-card">
+          <div>
+            <div class="decision-header">
+              <span class="decision-num">[ PUNTO 01 ]</span>
+              <span class="decision-tag">ESTRUCTURA</span>
+            </div>
+            <h3 class="decision-title">Equipo dedicado para la CTW</h3>
+            <p class="decision-body">Cuántas personas, con qué modelo y con qué presupuesto.</p>
+          </div>
+        </div>
+
+        <div class="decision-card">
+          <div>
+            <div class="decision-header">
+              <span class="decision-num">[ PUNTO 02 ]</span>
+              <span class="decision-tag">GOBERNANZA</span>
+            </div>
+            <h3 class="decision-title">Presidente de evento y comité</h3>
+            <p class="decision-body">Pedir a cada miembro del comité que asuma un rol concreto, lo que resuelve en parte la baja presencia de la mayoría durante la edición.</p>
+          </div>
+          <div class="rec-box">
+            <strong>Recomendación del equipo</strong>
+            Crear la figura de Presidente de evento y un comité con roles definidos, y un responsable por cada proceso de punta a punta.
+          </div>
+        </div>
+
+        <div class="decision-card">
+          <div>
+            <div class="decision-header">
+              <span class="decision-num">[ PUNTO 03 ]</span>
+              <span class="decision-tag">CALENDARIO &amp; VENUE</span>
+            </div>
+            <h3 class="decision-title">Fecha</h3>
+            <p class="decision-body">El 2 y 3 de noviembre es lo único libre en el Centro de Convenciones y el 24 de octubre hay elecciones. Decidir si se usa esa fecha o se busca otro venue.</p>
+          </div>
+        </div>
+
+        <div class="decision-card">
+          <div>
+            <div class="decision-header">
+              <span class="decision-num">[ PUNTO 05 ]</span>
+              <span class="decision-tag">COMERCIAL EXPO</span>
+            </div>
+            <h3 class="decision-title">Stands</h3>
+            <p class="decision-body">Más grandes, en menor cantidad y con precio según ubicación?</p>
+          </div>
+        </div>
+
+        <div class="decision-card">
+          <div>
+            <div class="decision-header">
+              <span class="decision-num">[ PUNTO 06 ]</span>
+              <span class="decision-tag">EXPERIENCIA</span>
+            </div>
+            <h3 class="decision-title">VIP</h3>
+            <p class="decision-body">Sí o no, y en qué formato.</p>
+          </div>
+        </div>
+
+        <div class="decision-card">
+          <div>
+            <div class="decision-header">
+              <span class="decision-num">[ PUNTO 07 ]</span>
+              <span class="decision-tag">FINANZAS</span>
+            </div>
+            <h3 class="decision-title">Qué se hace con el margen</h3>
+            <p class="decision-body">Definición del destino del resultado positivo proyectado de la edición.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+
+  -->
+
+  <!-- 9. Próximos pasos -->
+  <section id="sec-9">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ 09 / ROADMAP 2026–2027 ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 9. Próximos pasos</h2>
+      </div>
+
+      <div class="timeline-grid">
+        <div class="step-card">
+          <span class="step-date">01 · Antes de fin de 2026</span>
+          <p class="step-text">Anunciar la fecha de la CTW 2027, para que los sponsors reserven presupuesto.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-date">02 · Enero de 2027</span>
+          <p class="step-text">Cerrar definiciones: equipo, presidente y comité, fecha, formato de entrada, stands y VIP.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-date">03 · Febrero de 2027</span>
+          <p class="step-text">Arrancar la planificación, las contrataciones y las definiciones estratégicas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <!-- Anexo A. Detalle de la retrospectiva del equipo -->
+  <section id="anexo-a" class="scanlines">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">[ ANEXO A / RETROSPECTIVA INTERNA 4Ls ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> Anexo A. Detalle de la retrospectiva del equipo</h2>
+        <p class="section-lead">Resultado de la retro interna con técnica 4Ls (lo que nos encantó, lo que aprendimos, lo que necesitamos y lo que nos hubiera gustado).</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filtrar áreas de retrospectiva">
+        <button class="filter-btn active" data-filter="all">Todas las áreas (7)</button>
+        <button class="filter-btn" data-filter="fortaleza">Fortalezas</button>
+        <button class="filter-btn" data-filter="mixta">Mixta</button>
+        <button class="filter-btn" data-filter="fortalecer">A fortalecer</button>
+      </div>
+
+      <div class="retro-grid" id="retroGrid">
+        <!-- 1. Contenido y programa -->
+        <article class="retro-card fortaleza" data-category="fortaleza">
+          <div class="retro-header">
+            <h3 class="retro-title">Contenido y programa</h3>
+            <span class="retro-badge fortaleza">FORTALEZA</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Speakers y paneles:</strong> es lo más valorado. Se destacan la calidad, la diversidad de contenidos y los referentes del sector, además de la agenda y la organización por temáticas. Las charlas VIP también se mencionan como positivas.</li>
+            <li><strong>Skill Labs:</strong> convocan e interesan.</li>
+            <li><strong>Córdoba Tech Connect:</strong> la ronda de negocios y la participación de compradores del exterior son fortaleza.</li>
+            <li><strong>Oportunidades:</strong> definir los speakers pagos con tiempo y presupuesto, mejorar el proceso de inscripción a actividades especiales y pensar el almuerzo en salones separados con speakers para invitar referentes.</li>
+          </ul>
+        </article>
+
+        <!-- 2. Experiencia del asistente -->
+        <article class="retro-card mixta" data-category="mixta">
+          <div class="retro-header">
+            <h3 class="retro-title">Experiencia del asistente</h3>
+            <span class="retro-badge mixta">MIXTA</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Networking:</strong> la herramienta de meetings se usó poco y la app B2B de QR no funcionó como se esperaba. La plataforma salió muy tarde..</li>
+            <li><strong>Señalética:</strong> marca, banners y pantallas es un logro. Hubo problemas con el ploteo y banners de expositores en la Zona Expo.</li>
+            <li><strong>Catering:</strong> el café de especialidad gustó y el lunch tuvo colas (sumado al calor intenso). El uso del VIP y sus acreditaciones deberian mejorarse.</li>
+          </ul>
+        </article>
+
+        <!-- 3. Operación y logística -->
+        <article class="retro-card fortalecer" data-category="fortalecer">
+          <div class="retro-header">
+            <h3 class="retro-title">Operación y logística</h3>
+            <span class="retro-badge fortalecer">A FORTALECER</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Venue:</strong> chequear las instalaciones de los venues y resolver el aire acondicionado del pabellón amarillo (si se resuelve volver a usarse).</li>
+            <li><strong>Ingreso y estacionamiento:</strong> hubo mucha congestión a la entrada.</li>
+            <li><strong>Producción técnica:</strong> el despliegue técnico y las pantallas son parte de la puesta general, que es un logro.</li>
+            <li><strong>Staff:</strong> faltaron personas a quienes delegar y revisar el rol del buscapersona. Se destaca el compromiso durante la ejecución.</li>
+            <li><strong>Acreditación:</strong> faltaron puestos e impresoras el primer día (jueves) y hubo problemas con las acreditaciones VIP.</li>
+            <li><strong>Proveedores:</strong> fue el tema más repetido de la retro. Aparecen la falta de compromiso, la comunicación, la tensión en la negociación, la baja involucración de la productora y las expectativas mal alineadas.</li>
+          </ul>
+        </article>
+
+        <!-- 4. Comercial y finanzas -->
+        <article class="retro-card neutro" data-category="mixta">
+          <div class="retro-header">
+            <h3 class="retro-title">Comercial y finanzas</h3>
+            <span class="retro-badge mixta">MIXTA</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Resultado comercial positivo:</strong> hubs con fuerte presencia de marca, espacios llave en mano y venta en equipo.</li>
+            <li><strong>Sustentabilidad financiera:</strong> sin apoyo del Gobierno, los números no cierran. El acuerdo con CMS para facturación y pagos son un aprendizaje.</li>
+          </ul>
+        </article>
+
+        <!-- 5. Comunicación y difusión -->
+        <article class="retro-card fortaleza" data-category="fortaleza">
+          <div class="retro-header">
+            <h3 class="retro-title">Comunicación y difusión</h3>
+            <span class="retro-badge fortaleza">FORTALEZA</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Impacto y medios:</strong> estrategia integral de comunicación y marketing, repercusión posterior al evento, acompañamiento de La Voz, Cadena 3 y Canal 12, y puesta y diseño de la Zona Expo. Faltan métricas de alcance.</li>
+          </ul>
+        </article>
+
+        <!-- 6. Hackathon -->
+        <article class="retro-card fortalecer" data-category="fortalecer">
+          <div class="retro-header">
+            <h3 class="retro-title">Hackathon</h3>
+            <span class="retro-badge fortalecer">A FORTALECER</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Recomendación de foco:</strong> se recomienda no volver a sumarlo como adicional, porque quedó relegado y la CTW ya es enorme por sí misma.</li>
+          </ul>
+        </article>
+
+        <!-- 7. Transversales -->
+        <article class="retro-card neutro" data-category="mixta">
+          <div class="retro-header">
+            <h3 class="retro-title">Transversales</h3>
+            <span class="retro-badge mixta">MIXTA</span>
+          </div>
+          <ul class="retro-list">
+            <li><strong>Coordinación interna:</strong> es el segundo tema más repetido. Se propone un equipo exclusivo con Presidente y comité, owners claros, reuniones de seguimiento cada 15 días y una persona por proceso completo.</li>
+            <li><strong>Planificación:</strong> empezar en febrero con planificación, contrataciones y definiciones.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand-lockup">
+        <span class="cordoba">CÓRDOBA</span>
+        <span class="techweek">[tech_week]</span>
+      </div>
+      <div class="footer-note">
+        [ INFORME EDICIÓN · CÓRDOBA TECH WEEK 2026 ]
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Filter buttons for Anexo A
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const retroCards = document.querySelectorAll('.retro-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        retroCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Active section highlight in topbar
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (window.scrollY >= top) {
+          current = sec.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (current && link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
