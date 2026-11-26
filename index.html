@@ -53,7 +53,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Scanline tech texture from CTW Canva aesthetic */
     .scanlines {
       background-image: repeating-linear-gradient(
         0deg,
@@ -145,7 +144,6 @@
       font-weight: 700;
     }
 
-    /* Container */
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -230,38 +228,13 @@
       letter-spacing: 0.01em;
     }
 
-    .hero-title span.accent-lime {
-      color: var(--lime);
-    }
-
-    .hero-title span.accent-cyan {
-      color: var(--cyan);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      margin-top: 2rem;
-    }
+    .hero-title span.accent-lime { color: var(--lime); }
+    .hero-title span.accent-cyan { color: var(--cyan); }
 
     .pill-lime {
       display: inline-block;
       background: var(--lime);
       color: var(--bg-black);
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 0.78rem;
-      padding: 0.35rem 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .pill-purple {
-      display: inline-block;
-      background: var(--purple);
-      color: var(--white);
       font-family: var(--font-mono);
       font-weight: 700;
       font-size: 0.78rem;
@@ -297,7 +270,6 @@
       margin-top: 0.35rem;
     }
 
-    /* Section Structure */
     section {
       padding: 4.5rem 0;
       border-bottom: 1px solid rgba(105, 0, 255, 0.35);
@@ -464,14 +436,20 @@
       color: var(--gray-light);
     }
 
+    .bet-highlights {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
     .bet-highlight {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--cyan);
       background: var(--cyan-soft);
       padding: 0.4rem 0.65rem;
       display: inline-block;
-      margin-top: 0.25rem;
     }
 
     /* Section 3: Economy & Balance */
@@ -566,63 +544,156 @@
       line-height: 1.1;
     }
 
-    .fin-card.saldo .fin-amount {
-      color: var(--lime);
-    }
+    .fin-card.saldo .fin-amount { color: var(--lime); }
+    .fin-card.cobrar .fin-amount { color: var(--cyan); }
+    .fin-card.pagar .fin-amount { color: var(--coral); }
 
-    .fin-card.cobrar .fin-amount {
-      color: var(--cyan);
-    }
-
-    .fin-card.pagar .fin-amount {
-      color: var(--coral);
-    }
-
-    .fin-bar-container {
+    /* ESTILOS NUEVOS: Principales Rubros de Gastos (2025 vs. 2026) */
+    .rubros-box {
+      width: 100%;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
+      border-top: 2px solid var(--lime);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
 
-    .fin-bar-title {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      color: var(--lime);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .bar-row {
-      margin-bottom: 1rem;
-    }
-
-    .bar-row:last-child {
-      margin-bottom: 0;
-    }
-
-    .bar-meta {
+    .rubros-header {
       display: flex;
       justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      margin-bottom: 0.35rem;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
     }
 
-    .bar-track {
+    .rubros-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--lime);
+      letter-spacing: 0.04em;
+    }
+
+    .rubros-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.35rem;
+    }
+
+    .rubros-col {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      padding: 1.15rem 1.25rem;
+    }
+
+    .rubros-col.col-2025 {
+      border-top: 3px solid var(--coral);
+    }
+
+    .rubros-col.col-2026 {
+      border-top: 3px solid var(--lime);
+    }
+
+    .rubros-col-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .rubros-year-badge {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .rubros-year-badge.y2025 {
+      background: rgba(252, 121, 129, 0.16);
+      color: var(--coral);
+      border: 1px solid rgba(252, 121, 129, 0.45);
+    }
+
+    .rubros-year-badge.y2026 {
+      background: rgba(196, 240, 35, 0.14);
+      color: var(--lime);
+      border: 1px solid rgba(196, 240, 35, 0.45);
+    }
+
+    .rubros-col-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gray-muted);
+      text-transform: uppercase;
+    }
+
+    .rubros-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .rubro-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .rubro-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+    }
+
+    .rubro-name {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .rubro-pct {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .col-2025 .rubro-pct { color: var(--coral); }
+    .col-2026 .rubro-pct { color: var(--lime); }
+
+    .rubro-bar-track {
       width: 100%;
-      height: 14px;
+      height: 10px;
       background: #1a1a24;
       overflow: hidden;
-      position: relative;
     }
 
-    .bar-fill {
+    .rubro-bar-fill {
       height: 100%;
+      transition: width 0.35s ease;
     }
 
-    /* Desglose Falta Cobrar (Sección 03) */
+    .col-2025 .rubro-bar-fill {
+      background: linear-gradient(90deg, rgba(252, 121, 129, 0.65), var(--coral));
+    }
+
+    .col-2026 .rubro-bar-fill {
+      background: linear-gradient(90deg, rgba(105, 0, 255, 0.75), var(--lime));
+    }
+
+    @media (max-width: 820px) {
+      .rubros-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Desglose Falta Cobrar / Cuentas a Pagar */
     .receivables-box {
       width: 100%;
       background: var(--bg-card);
@@ -748,18 +819,7 @@
       }
     }
 
-    .note-box {
-      background: var(--purple-soft);
-      border-left: 4px solid var(--purple);
-      padding: 1rem 1.35rem;
-      font-size: 0.92rem;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    /* Sections 4, 5, 6 Grid — coherentes con el resto del informe */
+    /* Sections 4, 5, 6 Grid */
     .tri-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -809,7 +869,6 @@
       flex-shrink: 0;
     }
 
-    /* Reporte de comunicación y redes (Sección 06) — sin doble recuadro */
     .social-panel {
       grid-column: 1 / -1;
       background: transparent;
@@ -863,14 +922,6 @@
       text-transform: uppercase;
       color: var(--gray-light);
       margin-top: 0.25rem;
-    }
-
-    .social-kpi-delta {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--lime);
-      margin-top: 0.2rem;
-      display: block;
     }
 
     .social-subgrid {
@@ -931,108 +982,7 @@
       font-weight: 700;
     }
 
-    /* Sections 7 & 8: Decisions */
-    .validated-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.15rem;
-    }
-
-    .validated-card {
-      background: var(--bg-card);
-      border: 1px solid var(--cyan);
-      padding: 1.35rem;
-      position: relative;
-    }
-
-    .validated-card .status {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--bg-black);
-      background: var(--cyan);
-      font-weight: 700;
-      padding: 0.18rem 0.5rem;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-bottom: 0.65rem;
-    }
-
-    .validated-card p {
-      font-size: 0.94rem;
-      font-weight: 500;
-      color: var(--white);
-    }
-
-    .committee-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .decision-card {
-      background: var(--bg-card);
-      border: 1px solid var(--purple);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 0.85rem;
-    }
-
-    .decision-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-
-    .decision-num {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--lime);
-      font-weight: 700;
-    }
-
-    .decision-tag {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      background: var(--purple);
-      color: var(--white);
-      padding: 0.18rem 0.55rem;
-      text-transform: uppercase;
-    }
-
-    .decision-title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      text-transform: uppercase;
-      color: var(--white);
-      line-height: 1.15;
-    }
-
-    .decision-body {
-      font-size: 0.9rem;
-      color: var(--gray-light);
-    }
-
-    .rec-box {
-      background: rgba(196, 240, 35, 0.08);
-      border-left: 3px solid var(--lime);
-      padding: 0.65rem 0.85rem;
-      font-size: 0.85rem;
-      color: var(--white);
-    }
-
-    .rec-box strong {
-      color: var(--lime);
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-
-    /* Section 9: Next Steps Timeline */
+    /* Section 7 (9): Next Steps Timeline */
     .timeline-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1046,20 +996,10 @@
       border-right: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
       padding: 1.5rem;
-      position: relative;
     }
 
-    .step-card:nth-child(2) {
-      border-top-color: var(--cyan);
-    }
-
-    .step-card:nth-child(3) {
-      border-top-color: var(--purple);
-    }
-
-    .step-card:nth-child(4) {
-      border-top-color: var(--lime-bright);
-    }
+    .step-card:nth-child(2) { border-top-color: var(--cyan); }
+    .step-card:nth-child(3) { border-top-color: var(--purple); }
 
     .step-date {
       font-family: var(--font-mono);
@@ -1077,36 +1017,6 @@
     .step-text {
       font-size: 0.92rem;
       color: var(--white);
-    }
-
-    /* Section 10: Lo que no funcionó */
-    .issues-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .issue-card {
-      background: var(--bg-card);
-      border-left: 4px solid var(--coral);
-      border-top: 1px solid rgba(252, 121, 129, 0.25);
-      border-right: 1px solid rgba(252, 121, 129, 0.25);
-      border-bottom: 1px solid rgba(252, 121, 129, 0.25);
-      padding: 1.5rem;
-    }
-
-    .issue-title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 0.5rem;
-      line-height: 1.15;
-    }
-
-    .issue-desc {
-      font-size: 0.9rem;
-      color: var(--gray-light);
     }
 
     /* Anexo A: Retrospectiva 4Ls */
@@ -1183,7 +1093,6 @@
     .retro-badge.fortaleza { background: var(--lime); color: var(--bg-black); }
     .retro-badge.mixta { background: var(--gold); color: var(--bg-black); }
     .retro-badge.fortalecer { background: var(--coral); color: var(--bg-black); }
-    .retro-badge.neutro { background: var(--cyan); color: var(--bg-black); }
 
     .retro-list {
       list-style: none;
@@ -1212,45 +1121,7 @@
       color: var(--white);
     }
 
-    /* Footer */
-    footer {
-      padding: 3rem 0;
-      background: var(--bg-black);
-      border-top: 1px solid var(--purple);
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .footer-note {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--gray-muted);
-    }
-
-    /* Print optimization */
-    @media print {
-      .topbar, .filter-bar { display: none !important; }
-      body { background: #000000 !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      section { page-break-inside: avoid; padding: 2rem 0; }
-    }
-
-    @media (max-width: 640px) {
-      .topbar { padding: 0.65rem 1rem; }
-      .container { padding: 0 1.15rem; }
-      .hero { padding: 3.25rem 0 3rem; }
-      section { padding: 3rem 0; }
-      .bets-grid, .tri-grid, .committee-grid, .issues-grid, .retro-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Bloque Canjes y Adherentes con estética de tarjetas de la Sección 03 */
+    /* Canjes y Adherentes */
     .canjes-section-box {
       width: 100%;
       background: var(--bg-card);
@@ -1279,7 +1150,7 @@
 
     .canjes-total-big {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3vw, 2rem);
+      font-size: clamp(1.85rem, 3vw, 2.25rem);
       font-weight: 700;
       color: #b78aff;
       line-height: 1;
@@ -1323,7 +1194,6 @@
       color: #d8beff;
     }
 
-    /* Consolidado Ingresos + Canjes y Gastos + Canjes con estética de tarjetas */
     .canjes-consolidated-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1331,24 +1201,13 @@
       margin-top: 1.25rem;
     }
 
-    .fin-card.canje-ingresos {
-      border-color: #b78aff;
-      background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
-    }
-
-    .fin-card.canje-ingresos .fin-amount {
-      font-family: var(--font-display);
-      font-size: clamp(2.1rem, 3.2vw, 2.65rem);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.05;
-    }
-
+    .fin-card.canje-ingresos,
     .fin-card.canje-gastos {
       border-color: #b78aff;
       background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
     }
 
+    .fin-card.canje-ingresos .fin-amount,
     .fin-card.canje-gastos .fin-amount {
       font-family: var(--font-display);
       font-size: clamp(2.1rem, 3.2vw, 2.65rem);
@@ -1367,6 +1226,43 @@
         text-align: left;
       }
     }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      background: var(--bg-black);
+      border-top: 1px solid var(--purple);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .footer-note {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--gray-muted);
+    }
+
+    @media print {
+      .topbar, .filter-bar { display: none !important; }
+      body { background: #000000 !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { page-break-inside: avoid; padding: 2rem 0; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { padding: 0.65rem 1rem; }
+      .container { padding: 0 1.15rem; }
+      .hero { padding: 3.25rem 0 3rem; }
+      section { padding: 3rem 0; }
+      .bets-grid, .tri-grid, .issues-grid, .retro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1379,14 +1275,12 @@
         <span class="techweek">[tech_week]</span>
       </a>
       <nav class="nav-links" aria-label="Secciones del informe">
-        <a href="#sec-1">01 Metricas generales</a>
-        <a href="#sec-2">02 Apuestas 2025</a>
+        <a href="#sec-1">01 Métricas generales</a>
+        <a href="#sec-2">02 Apuestas 2026</a>
         <a href="#sec-3">03 Resultado</a>
         <a href="#sec-4">04–05 Satisfacción</a>
         <a href="#sec-6">06 Reporte comunicación</a>
-        <!--<a href="#sec-7">07 Validación</a>-->
-        <!--<a href="#sec-8">08 Decisiones</a>-->
-        <a href="#sec-9">07 Próximos Pasos</a>
+        <a href="#sec-9">07 Próximos pasos</a>
         <a href="#anexo-a">Anexo A</a>
       </nav>
     </div>
@@ -1426,7 +1320,7 @@
           <span class="kpi-badge purple">2 JORNADAS</span>
           <div class="kpi-number">3.386</div>
           <div class="kpi-label">Asistentes</div>
-          <div class="kpi-detail">5600 estimación total.</div>
+          <div class="kpi-detail">5.600 estimación total.</div>
         </div>
 
         <div class="kpi-card">
@@ -1445,8 +1339,8 @@
 
         <div class="kpi-card">
           <span class="kpi-badge">ACOMPAÑAMIENTO</span>
-          <div class="kpi-number">35  +  37</div>
-          <div class="kpi-label">Sponsors  +  Stands</div>
+          <div class="kpi-number">35 + 37</div>
+          <div class="kpi-label">Sponsors + Stands</div>
           <div class="kpi-detail">Empresas e instituciones acompañando la edición.</div>
         </div>
 
@@ -1454,7 +1348,7 @@
           <span class="kpi-badge purple">SIDE EVENT</span>
           <div class="kpi-number">7</div>
           <div class="kpi-label">Skill Lab</div>
-          <div class="kpi-detail">Gran interés y participación activa del púeblico.</div>
+          <div class="kpi-detail">Gran interés y participación activa del público.</div>
         </div>
 
         <div class="kpi-card">
@@ -1490,7 +1384,7 @@
             <h3 class="bet-title">IA como eje</h3>
             <p class="bet-desc">Lema <em>“Acelerando la revolución de la IA”</em> y programa de 38 charlas y paneles.</p>
           </div>
-          <div>
+          <div class="bet-highlights">
             <span class="bet-highlight">71% del programa estuvo dedicado a IA</span>
           </div>
         </div>
@@ -1501,8 +1395,8 @@
             <h3 class="bet-title">Depender menos del gobierno</h3>
             <p class="bet-desc">Reducción de la dependencia de aportes estatales respecto de ediciones anteriores.</p>
           </div>
-          <div>
-            <span class="bet-highlight">aportes públicos: 35% en 2026 vs. 56% en 2025</span>
+          <div class="bet-highlights">
+            <span class="bet-highlight">Aportes públicos: 35% en 2026 vs. 56% en 2025</span>
           </div>
         </div>
 
@@ -1512,8 +1406,8 @@
             <h3 class="bet-title">Cobrar lo que tiene valor</h3>
             <p class="bet-desc">Esquema tarifario diferenciado que traccionó membresías institucionales.</p>
           </div>
-          <div>
-            <span class="bet-highlight">11 organizaciones no socias se sumaron como sponsors. 6 socios nuevos para poder acceder al costo diferencial</span>
+          <div class="bet-highlights">
+            <span class="bet-highlight">11 organizaciones no socias se sumaron como sponsors. 6 socios nuevos para acceder al costo diferencial</span>
             <span class="bet-highlight">20 empresas socias renovaron su participación en 2026</span>
           </div>
         </div>
@@ -1524,7 +1418,7 @@
             <h3 class="bet-title">Speakers como el gran atractor</h3>
             <p class="bet-desc">La calidad y variedad de speakers salta a primera vista como diferencial central de convocatoria.</p>
           </div>
-          <div>
+          <div class="bet-highlights">
             <span class="bet-highlight">+ 50 speakers y panelistas referentes</span>
           </div>
         </div>
@@ -1533,9 +1427,9 @@
           <div>
             <span class="bet-num">[ APUESTA 05 ]</span>
             <h3 class="bet-title">Público empresario</h3>
-            <p class="bet-desc">5.600 asistentes, con fuerte presencia de tomadores de decisión del sector productivo.</p>
+            <p class="bet-desc">5.600 asistentes estimados, con fuerte presencia de tomadores de decisión del sector productivo.</p>
           </div>
-          <div>
+          <div class="bet-highlights">
             <span class="bet-highlight">47,67% de los asistentes de 2026 son puestos de liderazgo/alta dirección</span>
             <span class="bet-highlight">Aumento +64% preinscritos vs. 2025</span>
           </div>
@@ -1547,7 +1441,7 @@
             <h3 class="bet-title">Dos escenarios</h3>
             <p class="bet-desc">Programación paralela para ampliar oferta temática y dinamismo en sala.</p>
           </div>
-          <div>
+          <div class="bet-highlights">
             <span class="bet-highlight">2 escenarios en simultáneo (Principal y Pitch Corner)</span>
           </div>
         </div>
@@ -1565,12 +1459,12 @@
 
       <div class="economy-hero-banner">
         <div class="economy-hero-text">
-          Pasamos de un deficit de <strong>$10M en 2025</strong> a un superávit de <strong>$30M en 2026</strong>.
+          Pasamos de un déficit de <strong>$10M en 2025</strong> a un superávit de <strong>$30M en 2026</strong>.
         </div>
         <div class="turnaround-badges">
           <div class="turnaround-box neg">2025: -$10M</div>
           <span style="font-family: var(--font-mono); color: var(--lime); font-weight: 700;">&rarr;</span>
-          <div class="turnaround-box pos">2026: +$30 M</div>
+          <div class="turnaround-box pos">2026: +$30M</div>
         </div>
       </div>
 
@@ -1600,7 +1494,7 @@
         </div>
 
         <div class="fin-card pagar">
-          <span class="fin-label">Falta Pagar</span>
+          <span class="fin-label">Falta pagar</span>
           <div class="fin-amount">$73.606.705</div>
         </div>
       </div>
@@ -1662,7 +1556,7 @@
         </div>
       </div>
 
-       <!-- Principales Rubros de Gastos (2025 vs 2026) -->
+      <!-- Principales Rubros de Gastos (2025 vs 2026) -->
       <div class="rubros-box">
         <div class="rubros-header">
           <span class="rubros-title">[ PRINCIPALES RUBROS DE GASTOS · COMPARATIVA 2025 VS. 2026 ]</span>
@@ -1702,7 +1596,7 @@
 
               <div class="rubro-item">
                 <div class="rubro-meta">
-                  <span class="rubro-name">Viaticos</span>
+                  <span class="rubro-name">Viáticos</span>
                   <span class="rubro-pct">11,12%</span>
                 </div>
                 <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 42.36%;"></div></div>
@@ -1759,7 +1653,7 @@
 
               <div class="rubro-item">
                 <div class="rubro-meta">
-                  <span class="rubro-name">Viaticos</span>
+                  <span class="rubro-name">Viáticos</span>
                   <span class="rubro-pct">5,56%</span>
                 </div>
                 <div class="rubro-bar-track"><div class="rubro-bar-fill" style="width: 21.18%;"></div></div>
@@ -1785,7 +1679,6 @@
         </div>
       </div>
 
-      
       <!-- Desglose detallado de cuentas a cobrar -->
       <div class="receivables-box">
         <div class="receivables-header">
@@ -1852,83 +1745,83 @@
         </div>
       </div>
 
+      <!-- Desglose detallado de cuentas a pagar -->
+      <div class="receivables-box">
+        <div class="receivables-header">
+          <span class="receivables-title">[ DETALLE DE CUENTAS A PAGAR · 13 ENTIDADES ]</span>
+          <span class="receivables-total">$73.606.705</span>
+        </div>
 
-    <!-- Desglose detallado de cuentas a pagar -->
-<div class="receivables-box">
-  <div class="receivables-header">
-    <span class="receivables-title">[ DETALLE DE CUENTAS A PAGAR · 13 ENTIDADES ]</span>
-    <span class="receivables-total">$73.606.705</span>
-  </div>
-
-  <div class="receivables-list">
-    <div class="receivable-row">
-      <span class="receivable-entity">LA VOZ</span>
-      <span class="receivable-amount">$22.173.250</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+        <div class="receivables-list">
+          <div class="receivable-row">
+            <span class="receivable-entity">LA VOZ</span>
+            <span class="receivable-amount">$22.173.250</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">HABITANTES</span>
+            <span class="receivable-amount">$14.770.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">IIBB</span>
+            <span class="receivable-amount">$11.633.375</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">COMISIÓN POR VENTA CMS</span>
+            <span class="receivable-amount">$6.400.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">AMR <span class="receivable-sub">(Contenido RRSS)</span></span>
+            <span class="receivable-amount">$6.000.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">LIMPIEZA HACKATON</span>
+            <span class="receivable-amount">$3.825.025</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">GRUPO EON <span class="receivable-sub">(Pauta)</span></span>
+            <span class="receivable-amount">$2.000.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">INTERNET AIRSAT</span>
+            <span class="receivable-amount">$1.929.769</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">GAMBA</span>
+            <span class="receivable-amount">$1.452.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">CENA</span>
+            <span class="receivable-amount">$1.076.900</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">APERTURA VIDEO AMR</span>
+            <span class="receivable-amount">$1.000.000</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">ATREZZO EXTRAS</span>
+            <span class="receivable-amount">$724.999</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+          <div class="receivable-row">
+            <span class="receivable-entity">VENTILADORES</span>
+            <span class="receivable-amount">$621.387</span>
+            <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">HABITANTES</span>
-      <span class="receivable-amount">$14.770.000</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">IIBB</span>
-      <span class="receivable-amount">$11.633.375</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">COMISIÓN POR VENTA CMS</span>
-      <span class="receivable-amount">$6.400.000</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">AMR <span class="receivable-sub">(Contenido RRSS)</span></span>
-      <span class="receivable-amount">$6.000.000</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">LIMPIEZA HACKATON</span>
-      <span class="receivable-amount">$3.825.025</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">GRUPO EON <span class="receivable-sub">(Pauta)</span></span>
-      <span class="receivable-amount">$2.000.000</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">INTERNET AIRSAT</span>
-      <span class="receivable-amount">$1.929.769</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">GAMBA</span>
-      <span class="receivable-amount">$1.452.000</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">CENA</span>
-      <span class="receivable-amount">$1.076.900</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">APERTURA VIDEO AMR</span>
-      <span class="receivable-amount">$1.000.000</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">ATREZZO EXTRAS</span>
-      <span class="receivable-amount">$724.999</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-    <div class="receivable-row">
-      <span class="receivable-entity">VENTILADORES</span>
-      <span class="receivable-amount">$621.387</span>
-      <span class="receivable-status"><span class="status-tag neutro">Pendiente de pago</span></span>
-    </div>
-  </div>
-</div>
-    
+  </section>
 
   <!-- 4, 5 & 6: Lo que funcionó, Encuestas y Comunicación -->
   <section id="sec-4" class="scanlines">
@@ -1967,267 +1860,149 @@
         </div>
 
         <!-- 6. Reporte de comunicación -->
-       <div id="sec-6" class="social-panel">
-  <div class="social-meta-row">
-    <div>
-      <span class="section-tag">[ 06 / RRSS, YOUTUBE Y WEB ]</span>
-      <h2 class="section-title" style="font-size: 1.85rem;"><span class="chevron">&gt;</span> 6. Reporte comunicación</h2>
-    </div>
-    <span class="pill-cyan">PERÍODO: ÚLTIMOS 30 DÍAS · 25/10 – 25/11/2026</span>
-  </div>
+        <div id="sec-6" class="social-panel">
+          <div class="social-meta-row">
+            <div>
+              <span class="section-tag">[ 06 / RRSS, YOUTUBE Y WEB ]</span>
+              <h2 class="section-title" style="font-size: 1.85rem;"><span class="chevron">&gt;</span> 6. Reporte comunicación</h2>
+            </div>
+            <span class="pill-cyan">PERÍODO: ÚLTIMOS 30 DÍAS · 25/10 – 25/11/2026</span>
+          </div>
 
-  <div class="social-subgrid">
-    <!-- Instagram -->
-    <div class="social-subbox">
-      <span class="social-subbox-title">[ INSTAGRAM · ÚLTIMOS 30 DÍAS ]</span>
-      <div class="social-kpis" style="grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0.65rem; margin-bottom: 0.85rem;">
-        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
-          <div class="social-kpi-num" style="font-size: 1.45rem;">974.919</div>
-          <div class="social-kpi-label">Visualizaciones</div>
-        </div>
-        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
-          <div class="social-kpi-num" style="font-size: 1.45rem;">16.576</div>
-          <div class="social-kpi-label">Interacciones</div>
-        </div>
-        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
-          <div class="social-kpi-num" style="font-size: 1.45rem;">11.485</div>
-          <div class="social-kpi-label">Actividad del perfil</div>
-        </div>
-        <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
-          <div class="social-kpi-num" style="font-size: 1.45rem;">14.230</div>
-          <div class="social-kpi-label">Seguidores totales</div>
-        </div>
-      </div>
-      <ul class="check-list" style="gap: 0.5rem; font-size: 0.84rem;">
-        <li><span class="check-icon">[›]</span> <span><strong>Descubrimiento:</strong> 54,5% de las visualizaciones correspondieron a no seguidores.</span></li>
-        <li><span class="check-icon">[›]</span> <span><strong>Formatos:</strong> Reels lideraron el rendimiento, seguidos por publicaciones e historias.</span></li>
-      </ul>
-    </div>
+          <div class="social-subgrid">
+            <!-- Instagram -->
+            <div class="social-subbox">
+              <span class="social-subbox-title">[ INSTAGRAM · ÚLTIMOS 30 DÍAS ]</span>
+              <div class="social-kpis" style="grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 0.65rem; margin-bottom: 0.85rem;">
+                <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+                  <div class="social-kpi-num" style="font-size: 1.45rem;">974.919</div>
+                  <div class="social-kpi-label">Visualizaciones</div>
+                </div>
+                <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+                  <div class="social-kpi-num" style="font-size: 1.45rem;">16.576</div>
+                  <div class="social-kpi-label">Interacciones</div>
+                </div>
+                <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+                  <div class="social-kpi-num" style="font-size: 1.45rem;">11.485</div>
+                  <div class="social-kpi-label">Actividad del perfil</div>
+                </div>
+                <div class="social-kpi" style="padding: 0.7rem 0.8rem;">
+                  <div class="social-kpi-num" style="font-size: 1.45rem;">14.230</div>
+                  <div class="social-kpi-label">Seguidores totales</div>
+                </div>
+              </div>
+              <ul class="check-list" style="gap: 0.5rem; font-size: 0.84rem;">
+                <li><span class="check-icon">[›]</span> <span><strong>Descubrimiento:</strong> 54,5% de las visualizaciones correspondieron a no seguidores.</span></li>
+                <li><span class="check-icon">[›]</span> <span><strong>Formatos:</strong> Reels lideraron el rendimiento, seguidos por publicaciones e historias.</span></li>
+              </ul>
+            </div>
 
-    <!-- LinkedIn -->
-    <div class="social-subbox">
-      <span class="social-subbox-title">[ LINKEDIN · ÚLTIMOS 30 DÍAS ]</span>
-      <ul class="top-posts-list" style="margin-bottom: 0.85rem;">
-        <li>
-          <span><strong>Impresiones</strong></span>
-          <span class="top-posts-metric">58.115 <span style="color: var(--lime); font-size: 0.72rem;">(+27,6%)</span></span>
-        </li>
-        <li>
-          <span><strong>Reacciones</strong></span>
-          <span class="top-posts-metric">1.110 <span style="color: var(--lime); font-size: 0.72rem;">(+40,7%)</span></span>
-        </li>
-        <li>
-          <span><strong>Comentarios</strong></span>
-          <span class="top-posts-metric">22 <span style="color: var(--lime); font-size: 0.72rem;">(+4,8%)</span></span>
-        </li>
-        <li>
-          <span><strong>Veces compartido</strong></span>
-          <span class="top-posts-metric">27 <span style="color: var(--lime); font-size: 0.72rem;">(+80%)</span></span>
-        </li>
-      </ul>
-      <p style="font-size: 0.82rem; color: var(--gray-light); line-height: 1.45;">
-        Mayor impulso en compartidos (+80%) y reacciones (+40,7%), reflejando circulación e interacción profesional.
-      </p>
-    </div>
+            <!-- LinkedIn -->
+            <div class="social-subbox">
+              <span class="social-subbox-title">[ LINKEDIN · ÚLTIMOS 30 DÍAS ]</span>
+              <ul class="top-posts-list" style="margin-bottom: 0.85rem;">
+                <li>
+                  <span><strong>Impresiones</strong></span>
+                  <span class="top-posts-metric">58.115 <span style="color: var(--lime); font-size: 0.72rem;">(+27,6%)</span></span>
+                </li>
+                <li>
+                  <span><strong>Reacciones</strong></span>
+                  <span class="top-posts-metric">1.110 <span style="color: var(--lime); font-size: 0.72rem;">(+40,7%)</span></span>
+                </li>
+                <li>
+                  <span><strong>Comentarios</strong></span>
+                  <span class="top-posts-metric">22 <span style="color: var(--lime); font-size: 0.72rem;">(+4,8%)</span></span>
+                </li>
+                <li>
+                  <span><strong>Veces compartido</strong></span>
+                  <span class="top-posts-metric">27 <span style="color: var(--lime); font-size: 0.72rem;">(+80%)</span></span>
+                </li>
+              </ul>
+              <p style="font-size: 0.82rem; color: var(--gray-light); line-height: 1.45;">
+                Mayor impulso en compartidos (+80%) y reacciones (+40,7%), reflejando circulación e interacción profesional.
+              </p>
+            </div>
 
-    <!-- YouTube -->
-    <div class="social-subbox">
-      <span class="social-subbox-title">[ YOUTUBE · CANAL CÓRDOBA CLUSTER ]</span>
-      <div class="social-kpis" style="grid-template-columns: repeat(3, minmax(85px, 1fr)); gap: 0.55rem; margin-bottom: 0.8rem;">
-        <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
-          <div class="social-kpi-num" style="font-size: 1.3rem;">749</div>
-          <div class="social-kpi-label">Suscriptores</div>
-        </div>
-        <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
-          <div class="social-kpi-num" style="font-size: 1.3rem;">531</div>
-          <div class="social-kpi-label">Videos totales</div>
-        </div>
-        <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
-          <div class="social-kpi-num" style="font-size: 1.3rem;">434</div>
-          <div class="social-kpi-label">Vis. top 9 (6d)</div>
-        </div>
-      </div>
-      <span class="social-subbox-title" style="margin-bottom: 0.5rem;">[ CHARLAS COMPLETAS CTW 2026 · PRIMEROS 6 DÍAS ]</span>
-      <ul class="top-posts-list" style="gap: 0.4rem; font-size: 0.8rem;">
-        <li><span><strong>Ciberseguridad e IA</strong></span><span class="top-posts-metric">107</span></li>
-        <li><span><strong>Desafíos economía arg. – M. Rapetti</strong></span><span class="top-posts-metric">87</span></li>
-        <li><span><strong>Crear un medio con agentes IA – S. Siri</strong></span><span class="top-posts-metric">71</span></li>
-        <li><span><strong>La infraestructura detrás…</strong></span><span class="top-posts-metric">44</span></li>
-        <li><span><strong>IA aplicada a la industria</strong></span><span class="top-posts-metric">33</span></li>
-        <li><span><strong>Latam frente a la IA: productividad y…</strong></span><span class="top-posts-metric">32</span></li>
-        <li><span><strong>No sólo hablamos de IA – H. Pennisi</strong></span><span class="top-posts-metric">25</span></li>
-        <li><span><strong>Problemas complejos, ¿qué chances…?</strong></span><span class="top-posts-metric">23</span></li>
-        <li><span><strong>226 años de legado con velocidad…</strong></span><span class="top-posts-metric">12</span></li>
-      </ul>
-    </div>
+            <!-- YouTube -->
+            <div class="social-subbox">
+              <span class="social-subbox-title">[ YOUTUBE · CANAL CÓRDOBA CLUSTER ]</span>
+              <div class="social-kpis" style="grid-template-columns: repeat(3, minmax(85px, 1fr)); gap: 0.55rem; margin-bottom: 0.8rem;">
+                <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
+                  <div class="social-kpi-num" style="font-size: 1.3rem;">749</div>
+                  <div class="social-kpi-label">Suscriptores</div>
+                </div>
+                <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
+                  <div class="social-kpi-num" style="font-size: 1.3rem;">531</div>
+                  <div class="social-kpi-label">Videos totales</div>
+                </div>
+                <div class="social-kpi" style="padding: 0.65rem 0.7rem;">
+                  <div class="social-kpi-num" style="font-size: 1.3rem;">434</div>
+                  <div class="social-kpi-label">Vis. top 9 (6d)</div>
+                </div>
+              </div>
+              <span class="social-subbox-title" style="margin-bottom: 0.5rem;">[ CHARLAS COMPLETAS CTW 2026 · PRIMEROS 6 DÍAS ]</span>
+              <ul class="top-posts-list" style="gap: 0.4rem; font-size: 0.8rem;">
+                <li><span><strong>Ciberseguridad e IA</strong></span><span class="top-posts-metric">107</span></li>
+                <li><span><strong>Desafíos economía arg. – M. Rapetti</strong></span><span class="top-posts-metric">87</span></li>
+                <li><span><strong>Crear un medio con agentes IA – S. Siri</strong></span><span class="top-posts-metric">71</span></li>
+                <li><span><strong>La infraestructura detrás…</strong></span><span class="top-posts-metric">44</span></li>
+                <li><span><strong>IA aplicada a la industria</strong></span><span class="top-posts-metric">33</span></li>
+                <li><span><strong>Latam frente a la IA: productividad y…</strong></span><span class="top-posts-metric">32</span></li>
+                <li><span><strong>No sólo hablamos de IA – H. Pennisi</strong></span><span class="top-posts-metric">25</span></li>
+                <li><span><strong>Problemas complejos, ¿qué chances…?</strong></span><span class="top-posts-metric">23</span></li>
+                <li><span><strong>226 años de legado con velocidad…</strong></span><span class="top-posts-metric">12</span></li>
+              </ul>
+            </div>
 
-    <!-- Web CTW -->
-    <div class="social-subbox">
-      <span class="social-subbox-title">[ WEB CTW · GOOGLE ANALYTICS (25/10 – 25/11) ]</span>
-      <div class="social-kpi" style="padding: 0.75rem 0.9rem; margin-bottom: 0.8rem;">
-        <div class="social-kpi-num" style="font-size: 1.65rem;">19.187</div>
-        <div class="social-kpi-label">Usuarios activos totales</div>
-      </div>
-      <span class="social-subbox-title" style="margin-bottom: 0.45rem;">[ POR DISPOSITIVO ]</span>
-      <ul class="top-posts-list" style="gap: 0.4rem; font-size: 0.8rem; margin-bottom: 0.8rem;">
-        <li><span><strong>Mobile</strong></span><span class="top-posts-metric">11.423 (59,54%)</span></li>
-        <li><span><strong>Desktop</strong></span><span class="top-posts-metric">7.648 (39,86%)</span></li>
-        <li><span><strong>Tablet</strong></span><span class="top-posts-metric">63 (0,33%)</span></li>
-      </ul>
-      <span class="social-subbox-title" style="margin-bottom: 0.45rem;">[ TOP 10 CIUDADES ]</span>
-      <ul class="top-posts-list" style="gap: 0.35rem; font-size: 0.79rem;">
-        <li><span><strong>Córdoba</strong></span><span class="top-posts-metric">10.122</span></li>
-        <li><span><strong>Buenos Aires</strong></span><span class="top-posts-metric">3.800</span></li>
-        <li><span><strong>(Sin definir)</strong></span><span class="top-posts-metric">1.134</span></li>
-        <li><span><strong>Santa Fe</strong></span><span class="top-posts-metric">497</span></li>
-        <li><span><strong>Mar del Plata</strong></span><span class="top-posts-metric">394</span></li>
-        <li><span><strong>Villa Carlos Paz</strong></span><span class="top-posts-metric">323</span></li>
-        <li><span><strong>La Calera</strong></span><span class="top-posts-metric">310</span></li>
-        <li><span><strong>San José</strong></span><span class="top-posts-metric">302</span></li>
-        <li><span><strong>Neuquén</strong></span><span class="top-posts-metric">277</span></li>
-        <li><span><strong>Salta</strong></span><span class="top-posts-metric">277</span></li>
-      </ul>
-    </div>
-  </div>
+            <!-- Web CTW -->
+            <div class="social-subbox">
+              <span class="social-subbox-title">[ WEB CTW · GOOGLE ANALYTICS (25/10 – 25/11) ]</span>
+              <div class="social-kpi" style="padding: 0.75rem 0.9rem; margin-bottom: 0.8rem;">
+                <div class="social-kpi-num" style="font-size: 1.65rem;">19.187</div>
+                <div class="social-kpi-label">Usuarios activos totales</div>
+              </div>
+              <span class="social-subbox-title" style="margin-bottom: 0.45rem;">[ POR DISPOSITIVO ]</span>
+              <ul class="top-posts-list" style="gap: 0.4rem; font-size: 0.8rem; margin-bottom: 0.8rem;">
+                <li><span><strong>Mobile</strong></span><span class="top-posts-metric">11.423 (59,54%)</span></li>
+                <li><span><strong>Desktop</strong></span><span class="top-posts-metric">7.648 (39,86%)</span></li>
+                <li><span><strong>Tablet</strong></span><span class="top-posts-metric">63 (0,33%)</span></li>
+              </ul>
+              <span class="social-subbox-title" style="margin-bottom: 0.45rem;">[ TOP 10 CIUDADES ]</span>
+              <ul class="top-posts-list" style="gap: 0.35rem; font-size: 0.79rem;">
+                <li><span><strong>Córdoba</strong></span><span class="top-posts-metric">10.122</span></li>
+                <li><span><strong>Buenos Aires</strong></span><span class="top-posts-metric">3.800</span></li>
+                <li><span><strong>(Sin definir)</strong></span><span class="top-posts-metric">1.134</span></li>
+                <li><span><strong>Santa Fe</strong></span><span class="top-posts-metric">497</span></li>
+                <li><span><strong>Mar del Plata</strong></span><span class="top-posts-metric">394</span></li>
+                <li><span><strong>Villa Carlos Paz</strong></span><span class="top-posts-metric">323</span></li>
+                <li><span><strong>La Calera</strong></span><span class="top-posts-metric">310</span></li>
+                <li><span><strong>San José</strong></span><span class="top-posts-metric">302</span></li>
+                <li><span><strong>Neuquén</strong></span><span class="top-posts-metric">277</span></li>
+                <li><span><strong>Salta</strong></span><span class="top-posts-metric">277</span></li>
+              </ul>
+            </div>
+          </div>
 
-  <div class="social-subbox">
-    <span class="social-subbox-title">[ CONCLUSIÓN GENERAL ]</span>
-    <ul class="check-list" style="gap: 0.5rem; font-size: 0.86rem;">
-      <li><span class="check-icon">[›]</span> <span><strong>Instagram:</strong> se destacó por su capacidad de alcance y descubrimiento, llegando a nuevas audiencias.</span></li>
-      <li><span class="check-icon">[›]</span> <span><strong>LinkedIn:</strong> mostró crecimiento en la circulación de contenidos e interacción profesional, especialmente en compartidos.</span></li>
-      <li><span class="check-icon">[›]</span> <span><strong>YouTube:</strong> permitió conservar y extender el acceso a los contenidos del evento mediante las charlas completas.</span></li>
-      <li><span class="check-icon">[›]</span> <span><strong>Sitio web CTW:</strong> registró 19.187 usuarios activos en 30 días, con predominio móvil (~60%) para consulta de agenda y más de la mitad del tráfico desde Córdoba (10.122), además de Buenos Aires y alcance federal (Santa Fe, Mar del Plata, Neuquén y Salta).</span></li>
-    </ul>
-  </div>
-</div>
+          <div class="social-subbox">
+            <span class="social-subbox-title">[ CONCLUSIÓN GENERAL ]</span>
+            <ul class="check-list" style="gap: 0.5rem; font-size: 0.86rem;">
+              <li><span class="check-icon">[›]</span> <span><strong>Instagram:</strong> se destacó por su capacidad de alcance y descubrimiento, llegando a nuevas audiencias.</span></li>
+              <li><span class="check-icon">[›]</span> <span><strong>LinkedIn:</strong> mostró crecimiento en la circulación de contenidos e interacción profesional, especialmente en compartidos.</span></li>
+              <li><span class="check-icon">[›]</span> <span><strong>YouTube:</strong> permitió conservar y extender el acceso a los contenidos del evento mediante las charlas completas.</span></li>
+              <li><span class="check-icon">[›]</span> <span><strong>Sitio web CTW:</strong> registró 19.187 usuarios activos en 30 días, con predominio móvil (~60%) para consulta de agenda y más de la mitad del tráfico desde Córdoba (10.122), además de Buenos Aires y alcance federal (Santa Fe, Mar del Plata, Neuquén y Salta).</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  
 
-  <!-- 7. Consideraciones del equipo -->
-
-  <!--
-  <section id="sec-7">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">[ 07 / VALIDACIÓN EJECUTIVA ]</span>
-        <h2 class="section-title"><span class="chevron">&gt;</span> 7. Consideraciones del equipo</h2>
-      </div>
-
-      <div class="validated-grid">
-        <div class="validated-card">
-          <span class="status">DEFINICIÓN 01 · VALIDAR</span>
-          <p>Mantener el formato de la CTW.</p>
-        </div>
-
-        <div class="validated-card">
-          <span class="status">DEFINICIÓN 02 · VALIDAR</span>
-          <p>No repetir el Hackathon.</p>
-        </div>
-
-        <div class="validated-card">
-          <span class="status">DEFINICIÓN 04 · VALIDAR</span>
-          <p>Compromisos/Expectativas con cada proveedor por escrito y seguimiento.</p>
-        </div>
-      </div>
-    </div>
-  </section> 
-
-  -->
-
-  <!-- 8. A decidir -->
-   <!-- 
-  <section id="sec-8" class="scanlines-purple">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">[ 08 / RESOLUCIONES DEL COMITÉ ]</span>
-        <h2 class="section-title"><span class="chevron">&gt;</span> 8. A decidir</h2>
-      </div>
-
-      <div class="committee-grid">
-        <div class="decision-card">
-          <div>
-            <div class="decision-header">
-              <span class="decision-num">[ PUNTO 01 ]</span>
-              <span class="decision-tag">ESTRUCTURA</span>
-            </div>
-            <h3 class="decision-title">Equipo dedicado para la CTW</h3>
-            <p class="decision-body">Cuántas personas, con qué modelo y con qué presupuesto.</p>
-          </div>
-        </div>
-
-        <div class="decision-card">
-          <div>
-            <div class="decision-header">
-              <span class="decision-num">[ PUNTO 02 ]</span>
-              <span class="decision-tag">GOBERNANZA</span>
-            </div>
-            <h3 class="decision-title">Presidente de evento y comité</h3>
-            <p class="decision-body">Pedir a cada miembro del comité que asuma un rol concreto, lo que resuelve en parte la baja presencia de la mayoría durante la edición.</p>
-          </div>
-          <div class="rec-box">
-            <strong>Recomendación del equipo</strong>
-            Crear la figura de Presidente de evento y un comité con roles definidos, y un responsable por cada proceso de punta a punta.
-          </div>
-        </div>
-
-        <div class="decision-card">
-          <div>
-            <div class="decision-header">
-              <span class="decision-num">[ PUNTO 03 ]</span>
-              <span class="decision-tag">CALENDARIO &amp; VENUE</span>
-            </div>
-            <h3 class="decision-title">Fecha</h3>
-            <p class="decision-body">El 2 y 3 de noviembre es lo único libre en el Centro de Convenciones y el 24 de octubre hay elecciones. Decidir si se usa esa fecha o se busca otro venue.</p>
-          </div>
-        </div>
-
-        <div class="decision-card">
-          <div>
-            <div class="decision-header">
-              <span class="decision-num">[ PUNTO 05 ]</span>
-              <span class="decision-tag">COMERCIAL EXPO</span>
-            </div>
-            <h3 class="decision-title">Stands</h3>
-            <p class="decision-body">Más grandes, en menor cantidad y con precio según ubicación?</p>
-          </div>
-        </div>
-
-        <div class="decision-card">
-          <div>
-            <div class="decision-header">
-              <span class="decision-num">[ PUNTO 06 ]</span>
-              <span class="decision-tag">EXPERIENCIA</span>
-            </div>
-            <h3 class="decision-title">VIP</h3>
-            <p class="decision-body">Sí o no, y en qué formato.</p>
-          </div>
-        </div>
-
-        <div class="decision-card">
-          <div>
-            <div class="decision-header">
-              <span class="decision-num">[ PUNTO 07 ]</span>
-              <span class="decision-tag">FINANZAS</span>
-            </div>
-            <h3 class="decision-title">Qué se hace con el margen</h3>
-            <p class="decision-body">Definición del destino del resultado positivo proyectado de la edición.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> 
-
-  -->
-
-  <!-- 9. Próximos pasos -->
+  <!-- 7 (9). Próximos pasos -->
   <section id="sec-9">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">[ 09 / ROADMAP 2026–2027 ]</span>
-        <h2 class="section-title"><span class="chevron">&gt;</span> 9. Próximos pasos</h2>
+        <span class="section-tag">[ 07 / ROADMAP 2026–2027 ]</span>
+        <h2 class="section-title"><span class="chevron">&gt;</span> 7. Próximos pasos</h2>
       </div>
 
       <div class="timeline-grid">
@@ -2249,7 +2024,6 @@
     </div>
   </section>
 
- 
   <!-- Anexo A. Detalle de la retrospectiva del equipo -->
   <section id="anexo-a" class="scanlines">
     <div class="container">
@@ -2288,9 +2062,9 @@
             <span class="retro-badge mixta">MIXTA</span>
           </div>
           <ul class="retro-list">
-            <li><strong>Networking:</strong> la herramienta de meetings se usó poco y la app B2B de QR no funcionó como se esperaba. La plataforma salió muy tarde..</li>
+            <li><strong>Networking:</strong> la herramienta de meetings se usó poco y la app B2B de QR no funcionó como se esperaba. La plataforma salió muy tarde.</li>
             <li><strong>Señalética:</strong> marca, banners y pantallas es un logro. Hubo problemas con el ploteo y banners de expositores en la Zona Expo.</li>
-            <li><strong>Catering:</strong> el café de especialidad gustó y el lunch tuvo colas (sumado al calor intenso). El uso del VIP y sus acreditaciones deberian mejorarse.</li>
+            <li><strong>Catering:</strong> el café de especialidad gustó y el lunch tuvo colas (sumado al calor intenso). El uso del VIP y sus acreditaciones deberían mejorarse.</li>
           </ul>
         </article>
 
@@ -2311,7 +2085,7 @@
         </article>
 
         <!-- 4. Comercial y finanzas -->
-        <article class="retro-card neutro" data-category="mixta">
+        <article class="retro-card mixta" data-category="mixta">
           <div class="retro-header">
             <h3 class="retro-title">Comercial y finanzas</h3>
             <span class="retro-badge mixta">MIXTA</span>
@@ -2345,7 +2119,7 @@
         </article>
 
         <!-- 7. Transversales -->
-        <article class="retro-card neutro" data-category="mixta">
+        <article class="retro-card mixta" data-category="mixta">
           <div class="retro-header">
             <h3 class="retro-title">Transversales</h3>
             <span class="retro-badge mixta">MIXTA</span>
@@ -2373,7 +2147,6 @@
   </footer>
 
   <script>
-    // Filter buttons for Anexo A
     const filterBtns = document.querySelectorAll('.filter-btn');
     const retroCards = document.querySelectorAll('.retro-card');
 
@@ -2392,7 +2165,6 @@
       });
     });
 
-    // Active section highlight in topbar
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
