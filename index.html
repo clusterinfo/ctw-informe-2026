@@ -759,24 +759,32 @@
       gap: 0.75rem;
     }
 
-    /* Sections 4, 5, 6 Grid */
+    /* Sections 4, 5, 6 Grid — coherentes con el resto del informe */
     .tri-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .panel-box {
       background: var(--bg-card);
-      border: 1px solid var(--purple);
-      padding: 1.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-top: 3px solid var(--purple);
+      padding: 1.5rem 1.6rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .panel-box:hover {
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.18);
     }
 
     .panel-box.lime-border {
-      border-color: var(--lime);
+      border-top-color: var(--lime);
     }
 
     .check-list {
@@ -801,15 +809,16 @@
       flex-shrink: 0;
     }
 
-    /* Reporte de comunicación y redes (Sección 06) */
+    /* Reporte de comunicación y redes (Sección 06) — sin doble recuadro */
     .social-panel {
       grid-column: 1 / -1;
-      background: var(--bg-card);
-      border: 1px solid var(--cyan);
-      padding: 1.75rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(18, 247, 223, 0.35);
+      padding: 1.5rem 0 0;
       display: flex;
       flex-direction: column;
-      gap: 1.35rem;
+      gap: 1.25rem;
     }
 
     .social-meta-row {
@@ -817,19 +826,27 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.75rem;
     }
 
     .social-kpis {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .social-kpi {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-subtle);
-      padding: 0.95rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-top: 2px solid var(--cyan);
+      padding: 1rem 1.1rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .social-kpi:hover {
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: rgba(18, 247, 223, 0.45);
     }
 
     .social-kpi-num {
@@ -859,13 +876,14 @@
     .social-subgrid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
+      gap: 1.15rem;
     }
 
     .social-subbox {
-      background: rgba(255, 255, 255, 0.015);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 1.1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-left: 3px solid var(--lime);
+      padding: 1.15rem 1.25rem;
     }
 
     .social-subbox-title {
@@ -1231,256 +1249,124 @@
         grid-template-columns: 1fr;
       }
     }
-  
-      /* Bloque Canjes y Adherentes con estética de tarjetas de la Sección 03 */
-      .canjes-section-box {
-        width: 100%;
-        background: var(--bg-card);
-        border: 1px solid #b78aff;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
 
-      .canjes-header-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 1.15rem;
-      }
+    /* Bloque Canjes y Adherentes con estética de tarjetas de la Sección 03 */
+    .canjes-section-box {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid #b78aff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-      .canjes-title {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: #b78aff;
-        letter-spacing: 0.04em;
-      }
+    .canjes-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+    }
 
-      .canjes-total-big {
-        font-family: var(--font-display);
-        font-size: clamp(2rem, 3vw, 2rem);
-        font-weight: 700;
-        color: #b78aff;
-        line-height: 1;
-        letter-spacing: 0.01em;
-      }
+    .canjes-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #b78aff;
+      letter-spacing: 0.04em;
+    }
 
-      .canjes-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+    .canjes-total-big {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #b78aff;
+      line-height: 1;
+      letter-spacing: 0.01em;
+    }
 
+    .canjes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .canjes-row {
+      display: grid;
+      grid-template-columns: minmax(180px, 1.3fr) minmax(130px, 0.8fr) minmax(180px, 1.4fr);
+      align-items: center;
+      gap: 1rem;
+      padding: 0.65rem 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .canjes-row:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(183, 138, 255, 0.45);
+    }
+
+    .canjes-amount-col {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #b78aff;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .status-tag.canje {
+      background: rgba(183, 138, 255, 0.12);
+      border: 1px solid rgba(183, 138, 255, 0.42);
+      color: #d8beff;
+    }
+
+    /* Consolidado Ingresos + Canjes y Gastos + Canjes con estética de tarjetas */
+    .canjes-consolidated-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+      margin-top: 1.25rem;
+    }
+
+    .fin-card.canje-ingresos {
+      border-color: #b78aff;
+      background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
+    }
+
+    .fin-card.canje-ingresos .fin-amount {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.2vw, 2.65rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.05;
+    }
+
+    .fin-card.canje-gastos {
+      border-color: #b78aff;
+      background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
+    }
+
+    .fin-card.canje-gastos .fin-amount {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.2vw, 2.65rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.05;
+    }
+
+    @media (max-width: 768px) {
       .canjes-row {
-        display: grid;
-        grid-template-columns: minmax(180px, 1.3fr) minmax(130px, 0.8fr) minmax(180px, 1.4fr);
-        align-items: center;
-        gap: 1rem;
-        padding: 0.65rem 0.85rem;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        font-size: 0.88rem;
-        transition: border-color 0.2s ease, background 0.2s ease;
+        grid-template-columns: 1fr auto;
+        gap: 0.45rem 0.75rem;
       }
-
-      .canjes-row:hover {
-        background: var(--bg-card-hover);
-        border-color: rgba(183, 138, 255, 0.45);
+      .canjes-row .receivable-status {
+        grid-column: 1 / -1;
+        text-align: left;
       }
-
-      .canjes-amount-col {
-        font-family: var(--font-mono);
-        font-weight: 700;
-        color: #b78aff;
-        text-align: right;
-        white-space: nowrap;
-      }
-
-      .status-tag.canje {
-        background: rgba(183, 138, 255, 0.12);
-        border: 1px solid rgba(183, 138, 255, 0.42);
-        color: #d8beff;
-      }
-
-      /* Consolidado Ingresos + Canjes y Gastos + Canjes con estética de tarjetas */
-      .canjes-consolidated-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.15rem;
-        margin-top: 1.25rem;
-      }
-
-      .fin-card.canje-ingresos {
-        border-color: #b78aff;
-        background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
-      }
-
-      .fin-card.canje-ingresos .fin-amount {
-        font-family: var(--font-display);
-        font-size: clamp(2.1rem, 3.2vw, 2.65rem);
-        font-weight: 700;
-        color: #ffffff;
-        line-height: 1.05;
-      }
-
-      .fin-card.canje-gastos {
-        border-color: #b78aff;
-        background: linear-gradient(145deg, rgba(183, 138, 255, 0.08) 0%, var(--bg-card) 70%);
-      }
-
-      .fin-card.canje-gastos .fin-amount {
-        font-family: var(--font-display);
-        font-size: clamp(2.1rem, 3.2vw, 2.65rem);
-        font-weight: 700;
-        color: #ffffff;
-        line-height: 1.05;
-      }
-
-      @media (max-width: 768px) {
-        .canjes-row {
-          grid-template-columns: 1fr auto;
-          gap: 0.45rem 0.75rem;
-        }
-        .canjes-row .receivable-status {
-          grid-column: 1 / -1;
-          text-align: left;
-        }
-      }
-
-  
-      /* Principales Rubros de Gastos (2025 vs 2026) */
-      .rubros-box {
-        width: 100%;
-        background: var(--bg-card);
-        border: 1px solid var(--coral);
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .rubros-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-bottom: 1.15rem;
-      }
-
-      .rubros-title {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--coral);
-        letter-spacing: 0.04em;
-      }
-
-      .rubros-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.25rem;
-      }
-
-      .rubros-col {
-        background: rgba(255, 255, 255, 0.015);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        padding: 1.1rem 1.2rem;
-      }
-
-      .rubros-col-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0.85rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .rubros-year-badge {
-        font-family: var(--font-display);
-        font-size: 1.45rem;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-        line-height: 1;
-      }
-
-      .rubros-year-badge.y2025 {
-        color: var(--gray-light);
-      }
-
-      .rubros-year-badge.y2026 {
-        color: var(--lime);
-      }
-
-      .rubros-col-sub {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        color: var(--gray-muted);
-      }
-
-      .rubros-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-
-      .rubro-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.28rem;
-      }
-
-      .rubro-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 0.75rem;
-        font-size: 0.88rem;
-      }
-
-      .rubro-name {
-        color: var(--white);
-        font-weight: 500;
-      }
-
-      .rubro-pct {
-        font-family: var(--font-mono);
-        font-weight: 700;
-        font-size: 0.85rem;
-        white-space: nowrap;
-      }
-
-      .rubros-col.col-2025 .rubro-pct {
-        color: var(--coral);
-      }
-
-      .rubros-col.col-2026 .rubro-pct {
-        color: var(--lime);
-      }
-
-      .rubro-bar-track {
-        width: 100%;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.06);
-        overflow: hidden;
-      }
-
-      .rubro-bar-fill {
-        height: 100%;
-      }
-
-      .rubros-col.col-2025 .rubro-bar-fill {
-        background: var(--coral);
-      }
-
-      .rubros-col.col-2026 .rubro-bar-fill {
-        background: var(--lime);
-      }
-
+    }
   </style>
 </head>
 <body>
@@ -1627,6 +1513,7 @@
           </div>
           <div>
             <span class="bet-highlight">11 organizaciones no socias se sumaron como sponsors. 6 socios nuevos para poder acceder al costo diferencial</span>
+            <span class="bet-highlight">20 empresas socias renovaron su participación en 2026</span>
           </div>
         </div>
 
@@ -1637,7 +1524,7 @@
             <p class="bet-desc">La calidad y variedad de speakers salta a primera vista como diferencial central de convocatoria.</p>
           </div>
           <div>
-            <span class="bet-highlight">53 speakers y panelistas referentes</span>
+            <span class="bet-highlight">+ 50 speakers y panelistas referentes</span>
           </div>
         </div>
 
@@ -1682,7 +1569,7 @@
         <div class="turnaround-badges">
           <div class="turnaround-box neg">2025: -$10M</div>
           <span style="font-family: var(--font-mono); color: var(--lime); font-weight: 700;">&rarr;</span>
-          <div class="turnaround-box pos">2026 POSITIVO: +$30 M</div>
+          <div class="turnaround-box pos">2026: +$30 M</div>
         </div>
       </div>
 
